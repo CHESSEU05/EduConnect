@@ -1,0 +1,53 @@
+import cors from 'cors';
+import express from 'express';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import morgan from 'morgan';
+
+import { env } from './config/env.js';
+import { errorHandler } from './middleware/error-handler.js';
+import { notFound } from './middleware/not-found.js';
+
+const app = express();
+
+const corsOrigin = env.CORS_ORIGIN === '*' ? '*' : env.CORS_ORIGIN.split(',');
+
+app.use(helmet());
+app.use(
+  cors({
+    origin: corsOrigin,
+  }),
+);
+app.use(express.json({ limit: env.JSON_BODY_LIMIT }));
+app.use(express.urlencoded({ extended: true, limit: env.URL_ENCODED_BODY_LIMIT }));
+app.use(
+  rateLimit({
+    windowMs: env.RATE_LIMIT_WINDOW_MS,
+    limit: env.RATE_LIMIT_MAX_REQUESTS,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+      success: false,
+      message: 'Too many requests, please try again later.',
+    },
+  }),
+);
+
+if (env.NODE_ENV !== 'test') {
+  app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+}
+
+app.get('/api/v1/health', (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'EduConnect API is running',
+    data: {
+      environment: env.NODE_ENV,
+    },
+  });
+});
+
+app.use(notFound);
+app.use(errorHandler);
+
+export { app };
