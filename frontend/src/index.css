@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 @theme {
+  --color-brand-blue: #2563eb;
+  --color-brand-green: #10b981;
+  --color-brand-navy: #0f2f66;
+  --color-brand-amber: #f59e0b;
+
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -56,6 +61,10 @@ body {
   background: #f8fafc;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 button,
 input,
 textarea,
@@ -71,4 +80,14 @@ a {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #ffffff;
+  background: #2563eb;
 }
