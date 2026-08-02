@@ -69,8 +69,8 @@ Login body:
 
 ```json
 {
-  "emailOrUsername": "student@example.com",
-  "password": "StrongPassword123"
+  "identifier": "student@example.com",
+  "password": "StrongPassword123!"
 }
 ```
 

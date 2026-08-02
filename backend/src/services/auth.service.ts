@@ -7,7 +7,8 @@ import {
   getDuplicateKeyField,
   isDuplicateKeyError,
 } from '../utils/mongo-errors.js';
-import type { RegisterInput } from '../validators/auth.validator.js';
+import { generateAccessToken } from '../utils/jwt.js';
+import type { LoginInput, RegisterInput } from '../validators/auth.validator.js';
 import type { UserDocument, UserStatus } from '../types/user.js';
 
 export type RegisteredUserResponse = {
@@ -22,8 +23,74 @@ export type RegisteredUserResponse = {
   createdAt: string;
 };
 
+type AuthenticatedUserResponse = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  role: UserDocument['role'];
+  status: UserStatus;
+  lastLoginAt: string;
+};
+
+export type LoginResponse = {
+  accessToken: string;
+  tokenType: 'Bearer';
+  expiresIn: string;
+  user: AuthenticatedUserResponse;
+};
+
+const invalidCredentialsMessage = 'Invalid email, username, or password';
+
 export class AuthService {
   public constructor(private readonly users: UserRepository = userRepository) {}
+
+  public async login(input: LoginInput): Promise<LoginResponse> {
+    const user = await this.users.findByEmailOrUsernameWithPasswordHash(
+      input.identifier,
+    );
+
+    if (!user) {
+      throw new AppError(invalidCredentialsMessage, 401);
+    }
+
+    const passwordMatches = await bcrypt.compare(
+      input.password,
+      user.passwordHash,
+    );
+
+    if (!passwordMatches) {
+      throw new AppError(invalidCredentialsMessage, 401);
+    }
+
+    if (user.status === 'inactive') {
+      throw new AppError('Account is inactive.', 403);
+    }
+
+    if (user.status === 'suspended') {
+      throw new AppError('Account is suspended.', 403);
+    }
+
+    const accessToken = generateAccessToken({
+      userId: user._id.toString(),
+      email: user.email,
+      role: user.role,
+    });
+
+    const lastLoginAt = new Date();
+    const updatedUser = await this.users.updateLastLogin(user._id.toString());
+
+    return {
+      accessToken,
+      tokenType: 'Bearer',
+      expiresIn: env.JWT_ACCESS_EXPIRES_IN,
+      user: this.toAuthenticatedUserResponse(
+        updatedUser ?? user,
+        updatedUser?.lastLoginAt ?? lastLoginAt,
+      ),
+    };
+  }
 
   public async register(input: RegisterInput): Promise<RegisteredUserResponse> {
     const existingEmailUser = await this.users.findByEmail(input.email);
@@ -79,6 +146,22 @@ export class AuthService {
       status: user.status,
       emailVerified: user.emailVerified,
       createdAt: user.createdAt.toISOString(),
+    };
+  }
+
+  private toAuthenticatedUserResponse(
+    user: UserDocument,
+    lastLoginAt: Date,
+  ): AuthenticatedUserResponse {
+    return {
+      id: user._id.toString(),
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      status: user.status,
+      lastLoginAt: lastLoginAt.toISOString(),
     };
   }
 

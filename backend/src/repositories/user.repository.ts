@@ -40,6 +40,21 @@ export class UserRepository {
     return User.findOne({ username: username.toLowerCase().trim() }).exec();
   }
 
+  public async findByEmailOrUsernameWithPasswordHash(
+    identifier: string,
+  ): Promise<UserDocument | null> {
+    const normalizedIdentifier = identifier.toLowerCase().trim();
+
+    return User.findOne({
+      $or: [
+        { email: normalizedIdentifier },
+        { username: normalizedIdentifier },
+      ],
+    })
+      .select('+passwordHash')
+      .exec();
+  }
+
   public async exists(filter: UserExistsFilter): Promise<boolean> {
     const result = await User.exists(filter).exec();
 

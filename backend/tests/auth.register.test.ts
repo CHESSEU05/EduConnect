@@ -17,6 +17,7 @@ const userRepositoryMock = vi.hoisted(() => ({
   create: vi.fn(),
   findById: vi.fn(),
   findByEmail: vi.fn(),
+  findByEmailOrUsernameWithPasswordHash: vi.fn(),
   findByUsername: vi.fn(),
   exists: vi.fn(),
   update: vi.fn(),
@@ -107,6 +108,11 @@ describe('POST /api/v1/auth/register', () => {
     vi.stubEnv('NODE_ENV', 'test');
     vi.stubEnv('MONGODB_URI', 'mongodb://127.0.0.1:27017/educonnect-test');
     vi.stubEnv('BCRYPT_SALT_ROUNDS', '10');
+    vi.stubEnv(
+      'JWT_ACCESS_SECRET',
+      'test-access-secret-with-at-least-32-characters',
+    );
+    vi.stubEnv('JWT_ACCESS_EXPIRES_IN', '15m');
 
     ({ app } = await import('../src/app.js'));
   });
