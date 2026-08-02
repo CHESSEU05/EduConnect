@@ -134,6 +134,13 @@ Change password body:
 | --- | --- | --- | --- |
 | `GET` | `/api/v1/courses` | Public | List published courses with search, filters, and pagination. |
 | `GET` | `/api/v1/courses/:slug` | Public | View published course details by slug. |
+| `POST` | `/api/v1/courses/:courseId/enroll` | Student | Enrol in a published course. |
+| `GET` | `/api/v1/courses/:courseId/reviews` | Public | List reviews for a published course. |
+| `POST` | `/api/v1/courses/:courseId/reviews` | Enrolled student | Create one review for a published course. |
+| `PATCH` | `/api/v1/courses/:courseId/reviews/me` | Review owner | Update the authenticated student's review. |
+| `DELETE` | `/api/v1/courses/:courseId/reviews/me` | Review owner | Delete the authenticated student's review. |
+
+Paid-course payment verification is outside the MVP. Enrolment currently records learning access only.
 
 ## Category Endpoints
 
@@ -165,6 +172,8 @@ Supported list query parameters:
 | `PATCH` | `/api/v1/instructor/courses/:courseId/archive` | Owning instructor | Archive an owned draft or published course. |
 | `GET` | `/api/v1/instructor/courses/:courseId/students` | Owning instructor | View enrolled students. |
 | `GET` | `/api/v1/instructor/courses/:courseId/reviews` | Owning instructor | View course reviews. |
+| `GET` | `/api/v1/instructor/dashboard` | Instructor | View owned-course dashboard statistics. |
+| `GET` | `/api/v1/instructor/courses/:courseId/enrollments` | Owning instructor | View course enrolments. |
 
 Course create and update body:
 
@@ -209,9 +218,8 @@ Module body:
 
 | Method | Path | Access | Purpose |
 | --- | --- | --- | --- |
-| `POST` | `/api/v1/courses/:courseId/enrollments` | Student | Enrol in a published course. |
-| `GET` | `/api/v1/users/me/enrollments` | Student | List current student's enrolled courses. |
-| `GET` | `/api/v1/courses/:courseId/modules` | Enrolled student | Access modules for an enrolled course. |
+| `GET` | `/api/v1/students/me/enrollments` | Student | List current student's enrolled courses. |
+| `GET` | `/api/v1/students/me/enrollments/:courseId` | Enrolled student | Access modules for an enrolled course. |
 
 ## Review Endpoints
 
@@ -219,8 +227,8 @@ Module body:
 | --- | --- | --- | --- |
 | `GET` | `/api/v1/courses/:courseId/reviews` | Public | List reviews for a published course. |
 | `POST` | `/api/v1/courses/:courseId/reviews` | Enrolled student | Create one review for the course. |
-| `PATCH` | `/api/v1/courses/:courseId/reviews/:reviewId` | Review owner | Update own review. |
-| `DELETE` | `/api/v1/courses/:courseId/reviews/:reviewId` | Review owner | Delete own review. |
+| `PATCH` | `/api/v1/courses/:courseId/reviews/me` | Review owner | Update own review. |
+| `DELETE` | `/api/v1/courses/:courseId/reviews/me` | Review owner | Delete own review. |
 
 Review body:
 

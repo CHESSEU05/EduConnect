@@ -164,6 +164,84 @@ export class CourseRepository {
       .exec();
   }
 
+  public async findById(courseId: string): Promise<CourseDocument | null> {
+    return Course.findById(courseId)
+      .populate(safePopulate)
+      .exec();
+  }
+
+  public async findPublishedById(
+    courseId: string,
+  ): Promise<CourseDocument | null> {
+    return Course.findOne({
+      _id: courseId,
+      status: "published",
+    })
+      .populate(safePopulate)
+      .exec();
+  }
+
+  public async incrementEnrollmentCount(
+    courseId: string,
+  ): Promise<CourseDocument | null> {
+    return Course.findByIdAndUpdate(
+      courseId,
+      {
+        $inc: {
+          enrollmentCount: 1,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    )
+      .populate(safePopulate)
+      .exec();
+  }
+
+  public async updateReviewStats(
+    courseId: string,
+    stats: {
+      averageRating: number;
+      reviewCount: number;
+    },
+  ): Promise<CourseDocument | null> {
+    return Course.findByIdAndUpdate(
+      courseId,
+      {
+        $set: stats,
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    )
+      .populate(safePopulate)
+      .exec();
+  }
+
+  public async findByInstructor(
+    instructorId: string,
+  ): Promise<CourseDocument[]> {
+    return Course.find({ instructor: instructorId })
+      .populate(safePopulate)
+      .sort({ createdAt: -1 })
+      .exec();
+  }
+
+  public async findIdsByTitleSearch(search: string): Promise<string[]> {
+    const courses = await Course.find({
+      $text: {
+        $search: search.trim(),
+      },
+    })
+      .select("_id")
+      .exec();
+
+    return courses.map((course) => course._id.toString());
+  }
+
   public async updateByIdForInstructor(
     courseId: string,
     instructorId: string,
