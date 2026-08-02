@@ -8,6 +8,9 @@ import { env } from './config/env.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { notFound } from './middleware/not-found.js';
 import { authRouter } from './routes/auth.routes.js';
+import { categoryRouter } from './routes/category.routes.js';
+import { courseRouter } from './routes/course.routes.js';
+import { instructorCourseRouter } from './routes/instructor-course.routes.js';
 import { userRouter } from './routes/user.routes.js';
 
 const app = express();
@@ -51,6 +54,9 @@ app.get('/api/v1/health', (_req, res) => {
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/courses', courseRouter);
+app.use('/api/v1/instructor/courses', instructorCourseRouter);
 
 app.use(notFound);
 app.use(errorHandler);

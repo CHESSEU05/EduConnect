@@ -15,11 +15,17 @@ export const validateRequest =
     }
 
     if (schemas.params) {
-      req.params = schemas.params.parse(req.params) as typeof req.params;
+      Object.defineProperty(req, 'params', {
+        value: schemas.params.parse(req.params),
+        configurable: true,
+      });
     }
 
     if (schemas.query) {
-      req.query = schemas.query.parse(req.query) as typeof req.query;
+      Object.defineProperty(req, 'query', {
+        value: schemas.query.parse(req.query),
+        configurable: true,
+      });
     }
 
     next();

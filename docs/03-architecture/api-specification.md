@@ -133,7 +133,14 @@ Change password body:
 | Method | Path | Access | Purpose |
 | --- | --- | --- | --- |
 | `GET` | `/api/v1/courses` | Public | List published courses with search, filters, and pagination. |
-| `GET` | `/api/v1/courses/:courseId` | Public | View published course details. |
+| `GET` | `/api/v1/courses/:slug` | Public | View published course details by slug. |
+
+## Category Endpoints
+
+| Method | Path | Access | Purpose |
+| --- | --- | --- | --- |
+| `GET` | `/api/v1/categories` | Public | List active course categories in display order. |
+| `GET` | `/api/v1/categories/:slug` | Public | View an active category by slug. |
 
 Supported list query parameters:
 
@@ -155,7 +162,7 @@ Supported list query parameters:
 | `PATCH` | `/api/v1/instructor/courses/:courseId` | Owning instructor | Update an owned course. |
 | `DELETE` | `/api/v1/instructor/courses/:courseId` | Owning instructor | Delete an owned course. |
 | `PATCH` | `/api/v1/instructor/courses/:courseId/publish` | Owning instructor | Publish a valid course. |
-| `PATCH` | `/api/v1/instructor/courses/:courseId/draft` | Owning instructor | Move an owned course back to draft. |
+| `PATCH` | `/api/v1/instructor/courses/:courseId/archive` | Owning instructor | Archive an owned draft or published course. |
 | `GET` | `/api/v1/instructor/courses/:courseId/students` | Owning instructor | View enrolled students. |
 | `GET` | `/api/v1/instructor/courses/:courseId/reviews` | Owning instructor | View course reviews. |
 
