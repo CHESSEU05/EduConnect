@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AppBootLoader } from './components/feedback/AppBootLoader';
+import { PageLoader } from './components/feedback/PageLoader';
 import { AuthProvider } from './context/AuthContext';
 import { AppRoutes } from './routes/AppRoutes';
 
@@ -21,8 +22,13 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        {isBootLoading ? <AppBootLoader /> : null}
-        <AppRoutes />
+        {isBootLoading ? (
+          <AppBootLoader />
+        ) : (
+          <Suspense fallback={<PageLoader message="Loading EduConnect" />}>
+            <AppRoutes />
+          </Suspense>
+        )}
       </AuthProvider>
     </BrowserRouter>
   );

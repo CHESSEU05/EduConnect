@@ -18,6 +18,7 @@ const environmentSchema = z.object({
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(100),
   JSON_BODY_LIMIT: z.string().trim().default('1mb'),
   URL_ENCODED_BODY_LIMIT: z.string().trim().default('1mb'),
+  BCRYPT_SALT_ROUNDS: z.coerce.number().int().min(10).max(15).default(12),
 });
 
 const parsedEnvironment = environmentSchema.safeParse(process.env);

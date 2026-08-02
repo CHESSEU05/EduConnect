@@ -10,6 +10,7 @@ type DataStateProps = {
   emptyMessage?: string;
   emptyTitle?: string;
   errorMessage?: string;
+  loadingLines?: number;
   loadingMessage?: string;
   loadingTitle?: string;
   status: AsyncDataStatus;
@@ -20,12 +21,19 @@ export function DataState({
   emptyMessage = 'There is no data to show yet.',
   emptyTitle = 'No data found',
   errorMessage = 'Something went wrong while loading this content.',
+  loadingLines,
   loadingMessage,
   loadingTitle,
   status,
 }: DataStateProps) {
   if (status === 'loading' || status === 'idle') {
-    return <LoadingState message={loadingMessage} title={loadingTitle} />;
+    return (
+      <LoadingState
+        lines={loadingLines}
+        message={loadingMessage}
+        title={loadingTitle}
+      />
+    );
   }
 
   if (status === 'error') {

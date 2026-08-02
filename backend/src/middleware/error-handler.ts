@@ -3,6 +3,10 @@ import { ZodError } from 'zod';
 
 import { env } from '../config/env.js';
 import { AppError } from '../utils/app-error.js';
+import {
+  getDuplicateKeyField,
+  isDuplicateKeyError,
+} from '../utils/mongo-errors.js';
 
 type ErrorDetail = {
   message: string;
@@ -60,6 +64,16 @@ export const errorHandler = (
     statusCode = 400;
     message = 'Validation failed';
     errors = formatZodErrors(error);
+  } else if (isDuplicateKeyError(error)) {
+    const field = getDuplicateKeyField(error);
+
+    statusCode = 409;
+    message =
+      field === 'email'
+        ? 'Email is already registered.'
+        : field === 'username'
+          ? 'Username is already taken.'
+          : 'Duplicate value already exists.';
   } else if (isNamedError(error, 'CastError')) {
     statusCode = 400;
     message = 'Invalid resource identifier';

@@ -16,6 +16,7 @@ export interface IUser {
   passwordHash: string;
   role: UserRole;
   status: UserStatus;
+  emailVerified: boolean;
   lastLoginAt?: Date;
   createdAt: Date;
   updatedAt: Date;

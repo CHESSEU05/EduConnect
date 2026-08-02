@@ -1,4 +1,4 @@
-import { LoadingSpinner } from './LoadingSpinner';
+import eduConnectLogo from '../../assets/educonnect-logo.png';
 
 type PageLoaderProps = {
   message?: string;
@@ -7,9 +7,24 @@ type PageLoaderProps = {
 export function PageLoader({ message = 'Loading page' }: PageLoaderProps) {
   return (
     <main className="grid min-h-screen place-items-center bg-page-background px-4">
-      <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-surface px-4 py-3 text-sm font-medium text-text-secondary shadow-sm">
-        <LoadingSpinner label={message} />
-        <span>{message}</span>
+      <div
+        aria-busy="true"
+        aria-label={message}
+        className="w-full max-w-sm rounded-2xl border border-slate-200 bg-surface px-6 py-8 text-center shadow-lg"
+        role="status"
+      >
+        <div className="relative mx-auto grid h-24 w-24 place-items-center">
+          <span className="absolute inset-0 rounded-2xl border border-brand-blue/40 [animation:educonnect-logo-ring_1.2s_ease-out_infinite]" />
+          <img
+            alt=""
+            className="relative h-20 w-20 rounded-2xl object-contain [animation:educonnect-logo-float_1.8s_ease-in-out_infinite]"
+            src={eduConnectLogo}
+          />
+        </div>
+        <p className="mt-5 text-base font-bold text-brand-navy">{message}</p>
+        <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-primary-100">
+          <span className="block h-full w-1/3 rounded-full bg-brand-green [animation:educonnect-progress_1.1s_ease-in-out_infinite]" />
+        </div>
       </div>
     </main>
   );

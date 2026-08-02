@@ -55,11 +55,13 @@ Register body:
 
 ```json
 {
+  "firstName": "Student",
+  "lastName": "Name",
   "email": "student@example.com",
   "username": "student123",
-  "password": "StrongPassword123",
-  "role": "student",
-  "fullName": "Student Name"
+  "password": "StrongPassword123!",
+  "confirmPassword": "StrongPassword123!",
+  "role": "student"
 }
 ```
 

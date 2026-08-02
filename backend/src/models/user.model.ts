@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model } from "mongoose";
 
 import {
   type IUser,
@@ -71,6 +71,11 @@ const userSchema = new Schema<IUser, UserModel>(
       },
       default: "active",
     },
+    emailVerified: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     lastLoginAt: {
       type: Date,
     },
@@ -94,6 +99,4 @@ userSchema.index({ role: 1 });
 userSchema.index({ status: 1 });
 userSchema.index({ createdAt: 1 });
 
-export const User =
-  (models.User as UserModel | undefined) ??
-  model<IUser, UserModel>("User", userSchema);
+export const User = model<IUser, UserModel>("User", userSchema);

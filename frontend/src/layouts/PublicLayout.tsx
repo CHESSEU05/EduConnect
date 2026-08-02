@@ -15,7 +15,7 @@ export function PublicLayout() {
   return (
     <div className="min-h-screen bg-page-background text-text-primary">
       <header className="border-b border-slate-200 bg-surface/95 backdrop-blur">
-        <Container className="flex min-h-16 flex-wrap items-center justify-between gap-3 py-3">
+        <Container className="flex min-h-24 flex-wrap items-center justify-between gap-3 py-3">
           <Logo />
           <nav aria-label="Public navigation" className="flex flex-wrap gap-1">
             {publicLinks.map(({ icon: Icon, label, to }) => (
