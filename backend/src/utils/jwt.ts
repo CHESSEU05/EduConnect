@@ -2,7 +2,7 @@ import jwt, { type JwtPayload, type SignOptions } from 'jsonwebtoken';
 import type { StringValue } from 'ms';
 
 import { env } from '../config/env.js';
-import type { UserRole } from '../types/user.js';
+import { userRoles, type UserRole } from '../types/user.js';
 
 export type AccessTokenPayload = JwtPayload & {
   sub: string;
@@ -19,11 +19,14 @@ type GenerateAccessTokenInput = {
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null;
 
+const isUserRole = (value: unknown): value is UserRole =>
+  typeof value === 'string' && userRoles.includes(value as UserRole);
+
 const isAccessTokenPayload = (value: unknown): value is AccessTokenPayload =>
   isRecord(value) &&
   typeof value.sub === 'string' &&
   typeof value.email === 'string' &&
-  typeof value.role === 'string';
+  isUserRole(value.role);
 
 export const generateAccessToken = ({
   userId,

@@ -74,6 +74,29 @@ Login body:
 }
 ```
 
+Current user response:
+
+```json
+{
+  "success": true,
+  "message": "Authenticated user retrieved successfully",
+  "data": {
+    "user": {
+      "id": "64f1a2b3c4d5e6f789012345",
+      "firstName": "Student",
+      "lastName": "Name",
+      "username": "student123",
+      "email": "student@example.com",
+      "role": "student",
+      "status": "active",
+      "lastLoginAt": "2026-02-20T08:45:00.000Z",
+      "createdAt": "2026-01-15T10:30:00.000Z",
+      "updatedAt": "2026-02-20T08:45:00.000Z"
+    }
+  }
+}
+```
+
 ## User Endpoints
 
 | Method | Path | Access | Purpose |

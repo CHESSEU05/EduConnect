@@ -34,6 +34,11 @@ type AuthenticatedUserResponse = {
   lastLoginAt: string;
 };
 
+type CurrentUserResponse = AuthenticatedUserResponse & {
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type LoginResponse = {
   accessToken: string;
   tokenType: 'Bearer';
@@ -45,6 +50,26 @@ const invalidCredentialsMessage = 'Invalid email, username, or password';
 
 export class AuthService {
   public constructor(private readonly users: UserRepository = userRepository) {}
+
+  public async getCurrentUser(userId: string): Promise<CurrentUserResponse> {
+    const user = await this.users.findById(userId);
+
+    if (!user) {
+      throw new AppError(
+        'The account associated with this token no longer exists',
+        401,
+      );
+    }
+
+    if (user.status !== 'active') {
+      throw new AppError(
+        'This account is not permitted to access the platform',
+        403,
+      );
+    }
+
+    return this.toCurrentUserResponse(user);
+  }
 
   public async login(input: LoginInput): Promise<LoginResponse> {
     const user = await this.users.findByEmailOrUsernameWithPasswordHash(
@@ -162,6 +187,21 @@ export class AuthService {
       role: user.role,
       status: user.status,
       lastLoginAt: lastLoginAt.toISOString(),
+    };
+  }
+
+  private toCurrentUserResponse(user: UserDocument): CurrentUserResponse {
+    return {
+      id: user._id.toString(),
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      status: user.status,
+      lastLoginAt: user.lastLoginAt?.toISOString() ?? '',
+      createdAt: user.createdAt.toISOString(),
+      updatedAt: user.updatedAt.toISOString(),
     };
   }
 
