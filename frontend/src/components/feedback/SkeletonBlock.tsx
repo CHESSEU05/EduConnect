@@ -13,7 +13,7 @@ export function SkeletonBlock({
     <div
       aria-label={label}
       className={cn(
-        'relative overflow-hidden rounded-md bg-slate-100',
+        'relative overflow-hidden rounded-md bg-slate-100 shadow-sm',
         'after:absolute after:inset-0 after:-translate-x-full after:bg-gradient-to-r after:from-transparent after:via-white/70 after:to-transparent after:content-[""] after:[animation:educonnect-shimmer_1.4s_infinite]',
         className,
       )}
