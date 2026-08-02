@@ -5,12 +5,10 @@ export function AppBootLoader() {
     <div
       aria-label="EduConnect is loading"
       aria-live="polite"
-      className="fixed inset-0 z-50 grid place-items-center overflow-hidden bg-page-background px-6 [animation:educonnect-boot-fade_180ms_ease-out]"
+      className="app-shell fixed inset-0 z-50 grid place-items-center overflow-hidden px-6 [animation:educonnect-boot-fade_180ms_ease-out]"
       role="status"
     >
-      <div className="absolute left-[-10rem] top-[-10rem] h-80 w-80 rounded-full bg-primary-100" />
-      <div className="absolute bottom-[-9rem] right-[-8rem] h-72 w-72 rounded-full bg-secondary-100" />
-      <div className="flex w-full max-w-sm flex-col items-center text-center">
+      <div className="flex w-full max-w-sm flex-col items-center rounded-lg border border-white/80 bg-white/80 p-8 text-center shadow-2xl backdrop-blur">
         <div className="relative grid h-40 w-40 place-items-center">
           <span className="absolute inset-0 rounded-3xl border border-brand-blue/50 [animation:educonnect-logo-ring_1.2s_ease-out_infinite]" />
           <span className="absolute inset-3 rounded-3xl bg-primary-100 shadow-inner" />
@@ -20,7 +18,7 @@ export function AppBootLoader() {
             src={eduConnectLogo}
           />
         </div>
-        <p className="font-display mt-6 text-3xl font-bold text-brand-navy">
+        <p className="font-display mt-6 text-3xl font-extrabold text-brand-navy">
           EduConnect
         </p>
         <p className="mt-2 text-base text-text-secondary">

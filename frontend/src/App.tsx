@@ -1,5 +1,6 @@
 import { Suspense, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Toaster } from 'sonner';
 
 import { AppBootLoader } from './components/feedback/AppBootLoader';
 import { PageLoader } from './components/feedback/PageLoader';
@@ -29,6 +30,7 @@ function App() {
             <AppRoutes />
           </Suspense>
         )}
+        <Toaster closeButton position="top-right" richColors />
       </AuthProvider>
     </BrowserRouter>
   );

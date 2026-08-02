@@ -1,18 +1,19 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
 import { env } from '../config/env';
-import type { ApiErrorResponse, NormalizedApiError } from '../types/api';
+import type { ApiError, ApiErrorResponse } from '../types/api';
+import { clearStoredAuth, readAccessToken } from '../utils/storage';
 
 export class ApiClientError extends Error {
-  public readonly statusCode?: number;
+  public readonly status?: number;
 
-  public readonly errors: string[];
+  public readonly fieldErrors?: Record<string, string[]>;
 
-  public constructor(error: NormalizedApiError) {
+  public constructor(error: ApiError) {
     super(error.message);
     this.name = 'ApiClientError';
-    this.statusCode = error.statusCode;
-    this.errors = error.errors;
+    this.status = error.status;
+    this.fieldErrors = error.fieldErrors;
   }
 }
 
@@ -26,35 +27,61 @@ const isApiErrorResponse = (value: unknown): value is ApiErrorResponse => {
   return candidate.success === false && typeof candidate.message === 'string';
 };
 
+const toFieldErrors = (
+  errors: ApiErrorResponse['errors'],
+): Record<string, string[]> | undefined => {
+  if (!errors?.length) {
+    return undefined;
+  }
+
+  return errors.reduce<Record<string, string[]>>((accumulator, item) => {
+    const key = item.path ?? 'root';
+    accumulator[key] = [...(accumulator[key] ?? []), item.message];
+    return accumulator;
+  }, {});
+};
+
+const shouldBroadcastUnauthorized = (error: AxiosError): boolean => {
+  if (error.response?.status !== 401) {
+    return false;
+  }
+
+  const url = error.config?.url ?? '';
+
+  return !url.includes('/auth/login') && !url.includes('/auth/register');
+};
+
 const normalizeAxiosError = (error: AxiosError): ApiClientError => {
+  if (shouldBroadcastUnauthorized(error)) {
+    clearStoredAuth();
+    window.dispatchEvent(new CustomEvent('educonnect:unauthorized'));
+  }
+
   if (error.response) {
     const responseData = error.response.data;
 
     if (isApiErrorResponse(responseData)) {
       return new ApiClientError({
         message: responseData.message,
-        statusCode: error.response.status,
-        errors: responseData.errors?.map((item) => item.message) ?? [],
+        status: error.response.status,
+        fieldErrors: toFieldErrors(responseData.errors),
       });
     }
 
     return new ApiClientError({
       message: `Request failed with status ${error.response.status}.`,
-      statusCode: error.response.status,
-      errors: [],
+      status: error.response.status,
     });
   }
 
   if (error.request) {
     return new ApiClientError({
       message: 'Network error. Please check your connection and try again.',
-      errors: [],
     });
   }
 
   return new ApiClientError({
     message: error.message || 'Unexpected API client error.',
-    errors: [],
   });
 };
 
@@ -68,7 +95,12 @@ export const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-    // Future JWT attachment belongs here once authentication is implemented.
+    const token = readAccessToken();
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
     return config;
   },
 );
@@ -83,7 +115,6 @@ apiClient.interceptors.response.use(
     return Promise.reject(
       new ApiClientError({
         message: 'Unexpected API client error.',
-        errors: [],
       }),
     );
   },

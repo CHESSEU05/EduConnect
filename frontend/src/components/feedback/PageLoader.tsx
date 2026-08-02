@@ -6,11 +6,11 @@ type PageLoaderProps = {
 
 export function PageLoader({ message = 'Loading page' }: PageLoaderProps) {
   return (
-    <main className="grid min-h-screen place-items-center bg-page-background px-4">
+    <main className="app-shell grid min-h-screen place-items-center px-4">
       <div
         aria-busy="true"
         aria-label={message}
-        className="w-full max-w-sm rounded-2xl border border-slate-200 bg-surface px-6 py-8 text-center shadow-lg"
+        className="soft-panel w-full max-w-sm rounded-lg px-6 py-8 text-center"
         role="status"
       >
         <div className="relative mx-auto grid h-24 w-24 place-items-center">

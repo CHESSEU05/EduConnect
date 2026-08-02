@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import { PageLoader } from '../components/feedback/PageLoader';
 import { useAuth } from '../hooks/useAuth';
-import type { UserRole } from '../types/auth';
+import type { UserRole } from '../types/user';
 
 type RoleRouteProps = {
   allowedRoles: UserRole[];

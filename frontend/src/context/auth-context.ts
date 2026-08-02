@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 
-import type { AuthUser, LoginPlaceholderInput, UserRole } from '../types/auth';
+import type { AuthUser, LoginRequest, RegisterRequest } from '../types/auth';
+import type { UserRole } from '../types/user';
 
 export type AuthContextValue = {
   user: AuthUser | null;
@@ -8,8 +9,10 @@ export type AuthContextValue = {
   isAuthenticated: boolean;
   isLoading: boolean;
   role: UserRole | null;
-  login: (input: LoginPlaceholderInput) => void;
+  login: (input: LoginRequest) => Promise<AuthUser>;
+  register: (input: RegisterRequest) => Promise<void>;
   logout: () => void;
+  refreshCurrentUser: () => Promise<AuthUser | null>;
 };
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
