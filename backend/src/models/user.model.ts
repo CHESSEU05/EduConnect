@@ -76,6 +76,23 @@ const userSchema = new Schema<IUser, UserModel>(
       required: true,
       default: false,
     },
+    avatarUrl: {
+      type: String,
+      trim: true,
+      default: null,
+    },
+    bio: {
+      type: String,
+      trim: true,
+      maxlength: [500, "Bio cannot exceed 500 characters."],
+      default: null,
+    },
+    phoneNumber: {
+      type: String,
+      trim: true,
+      maxlength: [20, "Phone number cannot exceed 20 characters."],
+      default: null,
+    },
     lastLoginAt: {
       type: Date,
     },

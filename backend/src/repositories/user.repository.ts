@@ -8,12 +8,22 @@ type CreateUserInput = Omit<IUser, "createdAt" | "updatedAt">;
 type UpdateUserInput = Partial<
   Pick<
     IUser,
+    | "avatarUrl"
+    | "bio"
     | "email"
     | "firstName"
     | "lastName"
+    | "phoneNumber"
     | "role"
     | "status"
     | "username"
+  >
+>;
+
+type UpdateProfileInput = Partial<
+  Pick<
+    IUser,
+    "avatarUrl" | "bio" | "firstName" | "lastName" | "phoneNumber" | "username"
   >
 >;
 
@@ -55,6 +65,12 @@ export class UserRepository {
       .exec();
   }
 
+  public async findByIdWithPasswordHash(
+    userId: string,
+  ): Promise<UserDocument | null> {
+    return User.findById(userId).select("+passwordHash").exec();
+  }
+
   public async exists(filter: UserExistsFilter): Promise<boolean> {
     const result = await User.exists(filter).exec();
 
@@ -69,6 +85,34 @@ export class UserRepository {
       new: true,
       runValidators: true,
     }).exec();
+  }
+
+  public async updateProfile(
+    userId: string,
+    input: UpdateProfileInput,
+  ): Promise<UserDocument | null> {
+    return User.findByIdAndUpdate(userId, input, {
+      new: true,
+      runValidators: true,
+    }).exec();
+  }
+
+  public async updatePasswordHash(
+    userId: string,
+    passwordHash: string,
+  ): Promise<UserDocument | null> {
+    return User.findByIdAndUpdate(
+      userId,
+      {
+        $set: {
+          passwordHash,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    ).exec();
   }
 
   public async delete(userId: string): Promise<UserDocument | null> {

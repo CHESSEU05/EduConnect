@@ -17,6 +17,9 @@ export interface IUser {
   role: UserRole;
   status: UserStatus;
   emailVerified: boolean;
+  avatarUrl?: string | null;
+  bio?: string | null;
+  phoneNumber?: string | null;
   lastLoginAt?: Date;
   createdAt: Date;
   updatedAt: Date;

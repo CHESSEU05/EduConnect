@@ -101,9 +101,32 @@ Current user response:
 
 | Method | Path | Access | Purpose |
 | --- | --- | --- | --- |
-| `GET` | `/api/v1/users/me` | Authenticated | View current profile. |
-| `PATCH` | `/api/v1/users/me` | Authenticated | Update permitted profile fields. |
-| `PATCH` | `/api/v1/users/me/password` | Authenticated | Change password after current password verification. |
+| `GET` | `/api/v1/users/profile` | Authenticated | View current profile. |
+| `PATCH` | `/api/v1/users/profile` | Authenticated | Update permitted profile fields. |
+| `PATCH` | `/api/v1/users/change-password` | Authenticated | Change password after current password verification. |
+
+Profile update body:
+
+```json
+{
+  "firstName": "Student",
+  "lastName": "Name",
+  "username": "student123",
+  "avatarUrl": "https://example.com/avatar.jpg",
+  "bio": "Computer science learner in Douala.",
+  "phoneNumber": "+237600000000"
+}
+```
+
+Change password body:
+
+```json
+{
+  "currentPassword": "StrongPassword123!",
+  "newPassword": "NewStrongPassword123!",
+  "confirmNewPassword": "NewStrongPassword123!"
+}
+```
 
 ## Public Course Endpoints
 
