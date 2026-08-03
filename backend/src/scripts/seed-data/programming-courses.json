@@ -1,0 +1,362 @@
+[
+  {
+    "_id": {
+      "$oid": "66b100000000000000000101"
+    },
+    "title": "React Fundamentals for Beginners",
+    "slug": "react-fundamentals-for-beginners",
+    "shortDescription": "Build a strong React foundation by learning components, props, state, and simple routing.",
+    "description": "This beginner-friendly course introduces React through practical examples designed for students and independent learners. You will learn how components work, how props and state shape user interfaces, and how to organize a small React application. The course is suitable for learners using low-bandwidth connections because the MVP relies on external resources instead of hosted videos.",
+    "category": {
+      "$oid": "6a6fc079178ff0cdd1d3ae38"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=React+Fundamentals",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66b100000000000000001101"
+        },
+        "title": "What React Is and Why It Matters",
+        "description": "Understand the role of React in modern frontend development.",
+        "textContent": "React helps developers build interactive user interfaces from small reusable pieces called components. In this module, you will learn when React is useful and how it fits into a web application.",
+        "videoUrl": null,
+        "resourceUrl": "https://react.dev/learn",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001102"
+        },
+        "title": "Components, Props, and JSX",
+        "description": "Create reusable components and pass data with props.",
+        "textContent": "You will practice writing JSX, composing components, and passing simple data into child components through props.",
+        "videoUrl": null,
+        "resourceUrl": "https://react.dev/learn/your-first-component",
+        "order": 1,
+        "isPreview": false
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001103"
+        },
+        "title": "State and User Interaction",
+        "description": "Use state to update the screen when users interact with the app.",
+        "textContent": "This module explains local component state and event handlers through small examples such as counters, toggles, and form inputs.",
+        "videoUrl": null,
+        "resourceUrl": "https://react.dev/learn/state-a-components-memory",
+        "order": 2,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T08:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66b100000000000000000102"
+    },
+    "title": "JavaScript Essentials for Web Development",
+    "slug": "javascript-essentials-for-web-development",
+    "shortDescription": "Learn the JavaScript skills needed to build interactive websites and prepare for frontend frameworks.",
+    "description": "This course teaches core JavaScript in a practical and accessible way. Learners will work through variables, functions, arrays, objects, DOM basics, and asynchronous code. The course is designed for university students and self-taught learners who want a strong programming base before moving into React, Node.js, or full-stack development.",
+    "category": {
+      "$oid": "6a6fc079178ff0cdd1d3ae38"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=JavaScript+Essentials",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66b100000000000000001201"
+        },
+        "title": "Variables, Types, and Operators",
+        "description": "Learn how JavaScript stores and works with data.",
+        "textContent": "This module introduces strings, numbers, booleans, arrays, objects, and the operators used to work with them.",
+        "videoUrl": null,
+        "resourceUrl": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001202"
+        },
+        "title": "Functions and Control Flow",
+        "description": "Use functions, conditions, and loops to control program behavior.",
+        "textContent": "You will learn how to organize logic with functions, make decisions with if statements, and repeat tasks with loops.",
+        "videoUrl": null,
+        "resourceUrl": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks",
+        "order": 1,
+        "isPreview": false
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001203"
+        },
+        "title": "DOM and Async Basics",
+        "description": "Connect JavaScript to web pages and understand asynchronous requests.",
+        "textContent": "This module introduces DOM selection, click handlers, fetch requests, promises, and basic async/await usage.",
+        "videoUrl": null,
+        "resourceUrl": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs",
+        "order": 2,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T08:05:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T08:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T08:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66b100000000000000000103"
+    },
+    "title": "Node.js and Express API Development",
+    "slug": "nodejs-and-express-api-development",
+    "shortDescription": "Create REST APIs with Node.js, Express, validation, middleware, and clean project structure.",
+    "description": "This intermediate course helps learners build backend APIs using Node.js and Express. It introduces REST conventions, middleware, controllers, services, validation, and error handling. The course is useful for learners preparing to build full-stack applications with a frontend client and a MongoDB-backed API.",
+    "category": {
+      "$oid": "6a6fc079178ff0cdd1d3ae38"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/0F172A?text=Node.js+and+Express",
+    "isFree": false,
+    "price": 20000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66b100000000000000001301"
+        },
+        "title": "Node.js Runtime Foundations",
+        "description": "Understand how Node.js runs JavaScript outside the browser.",
+        "textContent": "This module introduces the Node.js runtime, package scripts, modules, and the basic structure of a backend project.",
+        "videoUrl": null,
+        "resourceUrl": "https://nodejs.org/en/learn",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001302"
+        },
+        "title": "Express Routes and Middleware",
+        "description": "Build routes and reusable middleware for API requests.",
+        "textContent": "You will create route handlers, parse JSON requests, add middleware, and return consistent HTTP responses.",
+        "videoUrl": null,
+        "resourceUrl": "https://expressjs.com/en/guide/routing.html",
+        "order": 1,
+        "isPreview": false
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001303"
+        },
+        "title": "Validation and Error Handling",
+        "description": "Validate request data and return helpful errors.",
+        "textContent": "This module covers request validation, centralized error middleware, and practical HTTP status code usage.",
+        "videoUrl": null,
+        "resourceUrl": "https://expressjs.com/en/guide/error-handling.html",
+        "order": 2,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T08:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T08:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T08:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66b100000000000000000104"
+    },
+    "title": "MongoDB and Mongoose for Application Data",
+    "slug": "mongodb-and-mongoose-for-application-data",
+    "shortDescription": "Model application data with MongoDB and Mongoose using schemas, indexes, and relationships.",
+    "description": "This course teaches learners how to design and work with document data in MongoDB through Mongoose. It covers schemas, validation, references, indexes, timestamps, and query patterns. It is designed for full-stack learners who want to store users, courses, enrollments, and reviews in a maintainable way.",
+    "category": {
+      "$oid": "6a6fc079178ff0cdd1d3ae38"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/10B981?text=MongoDB+and+Mongoose",
+    "isFree": false,
+    "price": 18000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66b100000000000000001401"
+        },
+        "title": "Document Modeling Basics",
+        "description": "Learn how MongoDB stores flexible document data.",
+        "textContent": "This module introduces collections, documents, embedded data, references, and when to use each modeling pattern.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.mongodb.com/docs/manual/data-modeling/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001402"
+        },
+        "title": "Mongoose Schemas and Validation",
+        "description": "Define schemas, required fields, defaults, and validators.",
+        "textContent": "You will learn how Mongoose schemas help keep application data consistent while still using MongoDB documents.",
+        "videoUrl": null,
+        "resourceUrl": "https://mongoosejs.com/docs/guide.html",
+        "order": 1,
+        "isPreview": false
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001403"
+        },
+        "title": "Indexes and Query Performance",
+        "description": "Improve search and filtering performance with indexes.",
+        "textContent": "This module explains common index patterns for fields like category, status, instructor, rating, and createdAt.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.mongodb.com/docs/manual/indexes/",
+        "order": 2,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T08:15:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T08:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T08:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66b100000000000000000105"
+    },
+    "title": "TypeScript for Reliable Full-Stack Apps",
+    "slug": "typescript-for-reliable-full-stack-apps",
+    "shortDescription": "Use TypeScript types, interfaces, unions, and generics to build safer frontend and backend code.",
+    "description": "This course helps JavaScript learners become productive with TypeScript. It covers type annotations, interfaces, unions, narrowing, generics, and project configuration. Learners will understand how TypeScript improves confidence when building full-stack applications with React, Express, and MongoDB.",
+    "category": {
+      "$oid": "6a6fc079178ff0cdd1d3ae38"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/0F172A?text=TypeScript+Full-Stack",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66b100000000000000001501"
+        },
+        "title": "TypeScript Type Basics",
+        "description": "Start with annotations, object types, arrays, and function types.",
+        "textContent": "This module explains how TypeScript describes values and catches common mistakes before code runs.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001502"
+        },
+        "title": "Interfaces, Unions, and Narrowing",
+        "description": "Represent real application states and handle them safely.",
+        "textContent": "You will model users, courses, API responses, and loading states using interfaces, union types, and narrowing.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+        "order": 1,
+        "isPreview": false
+      },
+      {
+        "_id": {
+          "$oid": "66b100000000000000001503"
+        },
+        "title": "Generics and API Response Types",
+        "description": "Create reusable types for APIs, repositories, and components.",
+        "textContent": "This module introduces generics through practical examples such as paginated responses, reusable components, and repository helpers.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+        "order": 2,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T08:20:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T08:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T08:20:00.000Z"
+    }
+  }
+]

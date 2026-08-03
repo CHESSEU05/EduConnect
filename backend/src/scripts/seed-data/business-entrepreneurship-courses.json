@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c030100000000000000000"
+    },
+    "title": "Entrepreneurship Fundamentals",
+    "slug": "entrepreneurship-fundamentals",
+    "shortDescription": "Turn ideas into small business concepts with validation, customers, and clear value.",
+    "description": "Turn ideas into small business concepts with validation, customers, and clear value. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3b"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Entrepreneurship%20Fundamentals",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c030101000000000000000"
+        },
+        "title": "Identify a real customer problem",
+        "description": "Start with the core ideas behind entrepreneurship fundamentals.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.strategyzer.com/library/the-value-proposition-canvas",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c030102000000000000000"
+        },
+        "title": "Validate ideas before building",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.ycombinator.com/library/6g-how-to-talk-to-users",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:40:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c030200000000000000000"
+    },
+    "title": "Business Model Design for Startups",
+    "slug": "business-model-design-for-startups",
+    "shortDescription": "Use business model thinking to define customers, channels, revenue, and operations.",
+    "description": "Use business model thinking to define customers, channels, revenue, and operations. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3b"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Business%20Model%20Design%20for%20Startups",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c030201000000000000000"
+        },
+        "title": "Business model canvas basics",
+        "description": "Start with the core ideas behind business model design for startups.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.strategyzer.com/library/the-business-model-canvas",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c030202000000000000000"
+        },
+        "title": "Channels and customer relationships",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.strategyzer.com/library/5-ways-to-design-better-business-models",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:45:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c030300000000000000000"
+    },
+    "title": "Small Business Finance Basics",
+    "slug": "small-business-finance-basics",
+    "shortDescription": "Understand pricing, costs, cash flow, simple budgets, and financial discipline.",
+    "description": "Understand pricing, costs, cash flow, simple budgets, and financial discipline. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3b"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Small%20Business%20Finance%20Basics",
+    "isFree": false,
+    "price": 14000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c030301000000000000000"
+        },
+        "title": "Cash flow basics",
+        "description": "Start with the core ideas behind small business finance basics.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.sba.gov/business-guide/manage-your-business/manage-your-finances",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c030302000000000000000"
+        },
+        "title": "Budgeting for operations",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.score.org/resource/article/how-create-business-budget",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:50:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c030400000000000000000"
+    },
+    "title": "Project Management for Entrepreneurs",
+    "slug": "project-management-for-entrepreneurs",
+    "shortDescription": "Plan work, manage priorities, communicate progress, and deliver reliably.",
+    "description": "Plan work, manage priorities, communicate progress, and deliver reliably. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3b"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Project%20Management%20for%20Entrepreneurs",
+    "isFree": false,
+    "price": 17000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c030401000000000000000"
+        },
+        "title": "Project management foundations",
+        "description": "Start with the core ideas behind project management for entrepreneurs.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.pmi.org/about/learn-about-pmi/what-is-project-management",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c030402000000000000000"
+        },
+        "title": "Kanban workflow basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.atlassian.com/agile/kanban",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:55:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c030500000000000000000"
+    },
+    "title": "Pitching and Business Communication",
+    "slug": "pitching-and-business-communication",
+    "shortDescription": "Present your idea clearly to partners, customers, investors, and institutions.",
+    "description": "Present your idea clearly to partners, customers, investors, and institutions. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3b"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Pitching%20and%20Business%20Communication",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c030501000000000000000"
+        },
+        "title": "Pitch deck structure",
+        "description": "Start with the core ideas behind pitching and business communication.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.ycombinator.com/library/2u-how-to-build-your-seed-round-pitch-deck",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c030502000000000000000"
+        },
+        "title": "Clear business writing",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://owl.purdue.edu/owl/subject_specific_writing/professional_technical_writing/basic_business_letters/index.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:00:00.000Z"
+    }
+  }
+]

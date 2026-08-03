@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c010100000000000000000"
+    },
+    "title": "Python for Data Analysis",
+    "slug": "python-for-data-analysis",
+    "shortDescription": "Learn Python data skills with notebooks, data cleaning, and exploratory analysis.",
+    "description": "Learn Python data skills with notebooks, data cleaning, and exploratory analysis. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae39"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Python%20for%20Data%20Analysis",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c010101000000000000000"
+        },
+        "title": "Python data basics",
+        "description": "Start with the core ideas behind python for data analysis.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://docs.python.org/3/tutorial/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c010102000000000000000"
+        },
+        "title": "Work with notebooks and data tables",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c010200000000000000000"
+    },
+    "title": "Statistics for Data-Driven Decisions",
+    "slug": "statistics-for-data-driven-decisions",
+    "shortDescription": "Understand descriptive statistics, probability, sampling, and practical interpretation.",
+    "description": "Understand descriptive statistics, probability, sampling, and practical interpretation. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae39"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Statistics%20for%20Data-Driven%20Decisions",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c010201000000000000000"
+        },
+        "title": "Descriptive statistics foundations",
+        "description": "Start with the core ideas behind statistics for data-driven decisions.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.khanacademy.org/math/statistics-probability",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c010202000000000000000"
+        },
+        "title": "Sampling and uncertainty",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://seeing-theory.brown.edu/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:05:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c010300000000000000000"
+    },
+    "title": "Machine Learning Foundations with Scikit-learn",
+    "slug": "machine-learning-foundations-with-scikit-learn",
+    "shortDescription": "Build a practical foundation in supervised learning, model evaluation, and responsible use.",
+    "description": "Build a practical foundation in supervised learning, model evaluation, and responsible use. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae39"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Machine%20Learning%20Foundations%20with%20Scikit-learn",
+    "isFree": false,
+    "price": 22000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c010301000000000000000"
+        },
+        "title": "How machine learning projects work",
+        "description": "Start with the core ideas behind machine learning foundations with scikit-learn.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://scikit-learn.org/stable/getting_started.html",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c010302000000000000000"
+        },
+        "title": "Train and evaluate simple models",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://scikit-learn.org/stable/tutorial/basic/tutorial.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c010400000000000000000"
+    },
+    "title": "SQL for Analytics and Reporting",
+    "slug": "sql-for-analytics-and-reporting",
+    "shortDescription": "Query relational data for dashboards, reports, and operational decision-making.",
+    "description": "Query relational data for dashboards, reports, and operational decision-making. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae39"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=SQL%20for%20Analytics%20and%20Reporting",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c010401000000000000000"
+        },
+        "title": "Select, filter, and group data",
+        "description": "Start with the core ideas behind sql for analytics and reporting.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.postgresql.org/docs/current/tutorial-select.html",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c010402000000000000000"
+        },
+        "title": "Join tables for reporting",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://mode.com/sql-tutorial/sql-joins/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:15:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c010500000000000000000"
+    },
+    "title": "Responsible AI and Prompting Basics",
+    "slug": "responsible-ai-and-prompting-basics",
+    "shortDescription": "Use AI tools thoughtfully for learning, research, productivity, and workflow support.",
+    "description": "Use AI tools thoughtfully for learning, research, productivity, and workflow support. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae39"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Responsible%20AI%20and%20Prompting%20Basics",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c010501000000000000000"
+        },
+        "title": "Responsible AI principles",
+        "description": "Start with the core ideas behind responsible ai and prompting basics.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://ai.google/responsibility/responsible-ai-practices/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c010502000000000000000"
+        },
+        "title": "Prompting for useful outputs",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.promptingguide.ai/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:20:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:20:00.000Z"
+    }
+  }
+]

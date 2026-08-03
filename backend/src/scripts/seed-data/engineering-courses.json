@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c050100000000000000000"
+    },
+    "title": "Engineering Drawing and Technical Sketching",
+    "slug": "engineering-drawing-and-technical-sketching",
+    "shortDescription": "Read and produce clear technical drawings, symbols, dimensions, and layouts.",
+    "description": "Read and produce clear technical drawings, symbols, dimensions, and layouts. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3d"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/64748B/FFFFFF?text=Engineering%20Drawing%20and%20Technical%20Sketching",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c050101000000000000000"
+        },
+        "title": "Technical drawing basics",
+        "description": "Start with the core ideas behind engineering drawing and technical sketching.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.autodesk.com/solutions/cad-software/technical-drawing",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c050102000000000000000"
+        },
+        "title": "Dimensioning concepts",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.engineeringtoolbox.com/drawing-standards-d_1527.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T12:20:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T12:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T12:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c050200000000000000000"
+    },
+    "title": "AutoCAD Basics for Students",
+    "slug": "autocad-basics-for-students",
+    "shortDescription": "Start drafting 2D engineering drawings using practical CAD tools and workflows.",
+    "description": "Start drafting 2D engineering drawings using practical CAD tools and workflows. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3d"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/64748B/FFFFFF?text=AutoCAD%20Basics%20for%20Students",
+    "isFree": false,
+    "price": 22000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c050201000000000000000"
+        },
+        "title": "AutoCAD learning resources",
+        "description": "Start with the core ideas behind autocad basics for students.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.autodesk.com/learn/ondemand/collection/autocad-quick-start-guide",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c050202000000000000000"
+        },
+        "title": "CAD file organization",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://help.autodesk.com/view/ACD/2025/ENU/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T12:25:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T12:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T12:25:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c050300000000000000000"
+    },
+    "title": "Electrical Circuits Fundamentals",
+    "slug": "electrical-circuits-fundamentals",
+    "shortDescription": "Understand voltage, current, resistance, circuit diagrams, and basic analysis.",
+    "description": "Understand voltage, current, resistance, circuit diagrams, and basic analysis. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3d"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/64748B/FFFFFF?text=Electrical%20Circuits%20Fundamentals",
+    "isFree": false,
+    "price": 18000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c050301000000000000000"
+        },
+        "title": "Circuit fundamentals",
+        "description": "Start with the core ideas behind electrical circuits fundamentals.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.allaboutcircuits.com/textbook/direct-current/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c050302000000000000000"
+        },
+        "title": "Ohms law and power",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.khanacademy.org/science/electrical-engineering",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T12:30:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T12:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T12:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c050400000000000000000"
+    },
+    "title": "Renewable Energy Systems Introduction",
+    "slug": "renewable-energy-systems-introduction",
+    "shortDescription": "Explore solar energy, batteries, efficiency, and practical energy project thinking.",
+    "description": "Explore solar energy, batteries, efficiency, and practical energy project thinking. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3d"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/64748B/FFFFFF?text=Renewable%20Energy%20Systems%20Introduction",
+    "isFree": false,
+    "price": 20000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c050401000000000000000"
+        },
+        "title": "Solar energy basics",
+        "description": "Start with the core ideas behind renewable energy systems introduction.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.energy.gov/eere/solar/how-does-solar-work",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c050402000000000000000"
+        },
+        "title": "Renewable energy overview",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nrel.gov/research/re-renewable-energy.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T12:35:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T12:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T12:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c050500000000000000000"
+    },
+    "title": "Engineering Project Safety Basics",
+    "slug": "engineering-project-safety-basics",
+    "shortDescription": "Apply risk awareness, safety planning, and responsible engineering work habits.",
+    "description": "Apply risk awareness, safety planning, and responsible engineering work habits. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3d"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/64748B/FFFFFF?text=Engineering%20Project%20Safety%20Basics",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c050501000000000000000"
+        },
+        "title": "Risk management basics",
+        "description": "Start with the core ideas behind engineering project safety basics.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.osha.gov/safety-management",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c050502000000000000000"
+        },
+        "title": "Engineering ethics overview",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nspe.org/resources/ethics/code-ethics",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T12:40:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T12:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T12:40:00.000Z"
+    }
+  }
+]

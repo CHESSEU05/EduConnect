@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c060100000000000000000"
+    },
+    "title": "Academic Writing for University Students",
+    "slug": "academic-writing-for-university-students",
+    "shortDescription": "Write clearer essays, reports, introductions, paragraphs, and conclusions.",
+    "description": "Write clearer essays, reports, introductions, paragraphs, and conclusions. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3e"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Academic%20Writing%20for%20University%20Students",
+    "isFree": false,
+    "price": 10000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c060101000000000000000"
+        },
+        "title": "Academic writing overview",
+        "description": "Start with the core ideas behind academic writing for university students.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://owl.purdue.edu/owl/general_writing/academic_writing/index.html",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c060102000000000000000"
+        },
+        "title": "Paragraph structure",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://writingcenter.unc.edu/tips-and-tools/paragraphs/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T13:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T13:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T13:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c060200000000000000000"
+    },
+    "title": "Research Methods and Literature Review Basics",
+    "slug": "research-methods-and-literature-review-basics",
+    "shortDescription": "Plan research questions, gather sources, and summarize academic literature responsibly.",
+    "description": "Plan research questions, gather sources, and summarize academic literature responsibly. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3e"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Research%20Methods%20and%20Literature%20Review%20Basics",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c060201000000000000000"
+        },
+        "title": "Research question guidance",
+        "description": "Start with the core ideas behind research methods and literature review basics.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://writingcenter.gmu.edu/writing-resources/research-based-writing/how-to-write-a-research-question",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c060202000000000000000"
+        },
+        "title": "Literature review basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://writingcenter.unc.edu/tips-and-tools/literature-reviews/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T13:15:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T13:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T13:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c060300000000000000000"
+    },
+    "title": "Citation and Referencing with Zotero",
+    "slug": "citation-and-referencing-with-zotero",
+    "shortDescription": "Organize sources, create citations, and avoid plagiarism in academic work.",
+    "description": "Organize sources, create citations, and avoid plagiarism in academic work. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3e"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Citation%20and%20Referencing%20with%20Zotero",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c060301000000000000000"
+        },
+        "title": "Zotero quick start",
+        "description": "Start with the core ideas behind citation and referencing with zotero.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.zotero.org/support/quick_start_guide",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c060302000000000000000"
+        },
+        "title": "Avoiding plagiarism",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://owl.purdue.edu/owl/avoiding_plagiarism/index.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T13:20:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T13:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T13:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c060400000000000000000"
+    },
+    "title": "Exam Preparation and Study Planning",
+    "slug": "exam-preparation-and-study-planning",
+    "shortDescription": "Build study timetables, active recall routines, and exam confidence.",
+    "description": "Build study timetables, active recall routines, and exam confidence. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3e"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Exam%20Preparation%20and%20Study%20Planning",
+    "isFree": false,
+    "price": 8000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c060401000000000000000"
+        },
+        "title": "Learning how to learn",
+        "description": "Start with the core ideas behind exam preparation and study planning.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.coursera.org/learn/learning-how-to-learn",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c060402000000000000000"
+        },
+        "title": "Study skills resources",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://learningcenter.unc.edu/tips-and-tools/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T13:25:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T13:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T13:25:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c060500000000000000000"
+    },
+    "title": "Presentation Skills for Academic Projects",
+    "slug": "presentation-skills-for-academic-projects",
+    "shortDescription": "Prepare clear slides, speak confidently, and answer questions professionally.",
+    "description": "Prepare clear slides, speak confidently, and answer questions professionally. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3e"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/2563EB/FFFFFF?text=Presentation%20Skills%20for%20Academic%20Projects",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c060501000000000000000"
+        },
+        "title": "Presentation design basics",
+        "description": "Start with the core ideas behind presentation skills for academic projects.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nngroup.com/articles/presenting-information-visuals/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c060502000000000000000"
+        },
+        "title": "Public speaking tips",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.toastmasters.org/resources/public-speaking-tips",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T13:30:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T13:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T13:30:00.000Z"
+    }
+  }
+]

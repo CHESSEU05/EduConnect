@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c070100000000000000000"
+    },
+    "title": "English for Academic Success",
+    "slug": "english-for-academic-success",
+    "shortDescription": "Improve reading, writing, speaking, and vocabulary for university contexts.",
+    "description": "Improve reading, writing, speaking, and vocabulary for university contexts. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3f"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=English%20for%20Academic%20Success",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c070101000000000000000"
+        },
+        "title": "Academic English practice",
+        "description": "Start with the core ideas behind english for academic success.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://learnenglish.britishcouncil.org/skills/writing",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c070102000000000000000"
+        },
+        "title": "Vocabulary development",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.oxfordlearnersdictionaries.com/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c070200000000000000000"
+    },
+    "title": "French Communication for University Life",
+    "slug": "french-communication-for-university-life",
+    "shortDescription": "Practice practical French for class discussions, emails, and daily interactions.",
+    "description": "Practice practical French for class discussions, emails, and daily interactions. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3f"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=French%20Communication%20for%20University%20Life",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c070201000000000000000"
+        },
+        "title": "French learning resources",
+        "description": "Start with the core ideas behind french communication for university life.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://apprendre.tv5monde.com/en",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c070202000000000000000"
+        },
+        "title": "French grammar reference",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.lawlessfrench.com/grammar/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:05:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c070300000000000000000"
+    },
+    "title": "Business English for Work",
+    "slug": "business-english-for-work",
+    "shortDescription": "Communicate professionally in emails, meetings, presentations, and job settings.",
+    "description": "Communicate professionally in emails, meetings, presentations, and job settings. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3f"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Business%20English%20for%20Work",
+    "isFree": false,
+    "price": 14000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c070301000000000000000"
+        },
+        "title": "Business English resources",
+        "description": "Start with the core ideas behind business english for work.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://learnenglish.britishcouncil.org/business-english",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c070302000000000000000"
+        },
+        "title": "Professional email basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://owl.purdue.edu/owl/subject_specific_writing/professional_technical_writing/email_etiquette.html",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c070400000000000000000"
+    },
+    "title": "IELTS Preparation Foundations",
+    "slug": "ielts-preparation-foundations",
+    "shortDescription": "Understand IELTS sections and build beginner-friendly preparation habits.",
+    "description": "Understand IELTS sections and build beginner-friendly preparation habits. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3f"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=IELTS%20Preparation%20Foundations",
+    "isFree": false,
+    "price": 18000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c070401000000000000000"
+        },
+        "title": "IELTS preparation",
+        "description": "Start with the core ideas behind ielts preparation foundations.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://takeielts.britishcouncil.org/take-ielts/prepare",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c070402000000000000000"
+        },
+        "title": "IELTS format",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://ielts.org/take-a-test/test-types/ielts-academic-test",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:15:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c070500000000000000000"
+    },
+    "title": "Public Speaking in English and French",
+    "slug": "public-speaking-in-english-and-french",
+    "shortDescription": "Build confidence for presentations, interviews, and classroom participation.",
+    "description": "Build confidence for presentations, interviews, and classroom participation. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae3f"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Public%20Speaking%20in%20English%20and%20French",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c070501000000000000000"
+        },
+        "title": "Public speaking tips",
+        "description": "Start with the core ideas behind public speaking in english and french.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.toastmasters.org/resources/public-speaking-tips",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c070502000000000000000"
+        },
+        "title": "Speaking practice ideas",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://learnenglish.britishcouncil.org/skills/speaking",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:20:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:20:00.000Z"
+    }
+  }
+]

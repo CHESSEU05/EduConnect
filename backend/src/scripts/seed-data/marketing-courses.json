@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c040100000000000000000"
+    },
+    "title": "Digital Marketing Fundamentals",
+    "slug": "digital-marketing-fundamentals",
+    "shortDescription": "Learn channels, funnels, customer segments, and practical online marketing planning.",
+    "description": "Learn channels, funnels, customer segments, and practical online marketing planning. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3c"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=Digital%20Marketing%20Fundamentals",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c040101000000000000000"
+        },
+        "title": "Digital marketing overview",
+        "description": "Start with the core ideas behind digital marketing fundamentals.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c040102000000000000000"
+        },
+        "title": "Customer journey basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/customer-journey/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:30:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c040200000000000000000"
+    },
+    "title": "Social Media Marketing Strategy",
+    "slug": "social-media-marketing-strategy",
+    "shortDescription": "Plan content, posting rhythms, community engagement, and campaign measurement.",
+    "description": "Plan content, posting rhythms, community engagement, and campaign measurement. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3c"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=Social%20Media%20Marketing%20Strategy",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c040201000000000000000"
+        },
+        "title": "Meta business learning",
+        "description": "Start with the core ideas behind social media marketing strategy.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.facebook.com/business/learn",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c040202000000000000000"
+        },
+        "title": "Social content planning",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://buffer.com/resources/social-media-content-calendar/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:35:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c040300000000000000000"
+    },
+    "title": "Content Marketing and Copywriting",
+    "slug": "content-marketing-and-copywriting",
+    "shortDescription": "Write clearer content for landing pages, product pages, email, and social posts.",
+    "description": "Write clearer content for landing pages, product pages, email, and social posts. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3c"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=Content%20Marketing%20and%20Copywriting",
+    "isFree": false,
+    "price": 14000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c040301000000000000000"
+        },
+        "title": "Content marketing basics",
+        "description": "Start with the core ideas behind content marketing and copywriting.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://contentmarketinginstitute.com/what-is-content-marketing/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c040302000000000000000"
+        },
+        "title": "Writing for the web",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nngroup.com/articles/how-users-read-on-the-web/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:40:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c040400000000000000000"
+    },
+    "title": "SEO Basics for Local Visibility",
+    "slug": "seo-basics-for-local-visibility",
+    "shortDescription": "Improve discoverability through keywords, site structure, helpful content, and search basics.",
+    "description": "Improve discoverability through keywords, site structure, helpful content, and search basics. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3c"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=SEO%20Basics%20for%20Local%20Visibility",
+    "isFree": false,
+    "price": 16000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c040401000000000000000"
+        },
+        "title": "SEO starter guide",
+        "description": "Start with the core ideas behind seo basics for local visibility.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c040402000000000000000"
+        },
+        "title": "Google business profile help",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://support.google.com/business/answer/3038177",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:45:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c040500000000000000000"
+    },
+    "title": "Marketing Analytics for Beginners",
+    "slug": "marketing-analytics-for-beginners",
+    "shortDescription": "Track campaigns with basic metrics, reporting habits, and data-informed decisions.",
+    "description": "Track campaigns with basic metrics, reporting habits, and data-informed decisions. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3c"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/0F2F66/FFFFFF?text=Marketing%20Analytics%20for%20Beginners",
+    "isFree": false,
+    "price": 18000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c040501000000000000000"
+        },
+        "title": "Google Analytics skillshop",
+        "description": "Start with the core ideas behind marketing analytics for beginners.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://skillshop.withgoogle.com/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c040502000000000000000"
+        },
+        "title": "Campaign measurement basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://support.google.com/analytics/answer/10089681",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T11:50:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T11:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T11:50:00.000Z"
+    }
+  }
+]

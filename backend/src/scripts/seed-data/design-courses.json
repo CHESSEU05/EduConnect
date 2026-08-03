@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c020100000000000000000"
+    },
+    "title": "UI UX Design Fundamentals",
+    "slug": "ui-ux-design-fundamentals",
+    "shortDescription": "Learn user-centered design basics, wireframes, visual hierarchy, and usability thinking.",
+    "description": "Learn user-centered design basics, wireframes, visual hierarchy, and usability thinking. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3a"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=UI%20UX%20Design%20Fundamentals",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c020101000000000000000"
+        },
+        "title": "Understand user needs",
+        "description": "Start with the core ideas behind ui ux design fundamentals.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nngroup.com/articles/definition-user-experience/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c020102000000000000000"
+        },
+        "title": "Wireframes and interface structure",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.figma.com/resource-library/what-is-wireframing/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:50:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c020200000000000000000"
+    },
+    "title": "Figma for Product Interfaces",
+    "slug": "figma-for-product-interfaces",
+    "shortDescription": "Design modern interfaces, components, prototypes, and handoff-ready screens in Figma.",
+    "description": "Design modern interfaces, components, prototypes, and handoff-ready screens in Figma. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3a"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Figma%20for%20Product%20Interfaces",
+    "isFree": false,
+    "price": 18000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c020201000000000000000"
+        },
+        "title": "Figma interface basics",
+        "description": "Start with the core ideas behind figma for product interfaces.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://help.figma.com/hc/en-us/categories/360002051613-Get-started",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c020202000000000000000"
+        },
+        "title": "Components and reusable design",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T09:55:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T09:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T09:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c020300000000000000000"
+    },
+    "title": "Visual Design for Digital Products",
+    "slug": "visual-design-for-digital-products",
+    "shortDescription": "Improve layout, typography, contrast, color, spacing, and visual polish.",
+    "description": "Improve layout, typography, contrast, color, spacing, and visual polish. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3a"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Visual%20Design%20for%20Digital%20Products",
+    "isFree": false,
+    "price": 16000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c020301000000000000000"
+        },
+        "title": "Material design foundations",
+        "description": "Start with the core ideas behind visual design for digital products.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://m3.material.io/foundations",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c020302000000000000000"
+        },
+        "title": "Color and accessibility",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://webaim.org/resources/contrastchecker/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c020400000000000000000"
+    },
+    "title": "Design Systems for Small Teams",
+    "slug": "design-systems-for-small-teams",
+    "shortDescription": "Create reusable UI patterns, tokens, and documentation for consistent products.",
+    "description": "Create reusable UI patterns, tokens, and documentation for consistent products. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3a"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "intermediate",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Design%20Systems%20for%20Small%20Teams",
+    "isFree": false,
+    "price": 20000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c020401000000000000000"
+        },
+        "title": "Design system basics",
+        "description": "Start with the core ideas behind design systems for small teams.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.designsystems.com/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c020402000000000000000"
+        },
+        "title": "Component documentation patterns",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://zeroheight.com/design-system/glossary/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:05:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c020500000000000000000"
+    },
+    "title": "Portfolio Design for Creatives",
+    "slug": "portfolio-design-for-creatives",
+    "shortDescription": "Package your work into a clear portfolio that communicates process and outcomes.",
+    "description": "Package your work into a clear portfolio that communicates process and outcomes. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07a178ff0cdd1d3ae3a"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/10B981/FFFFFF?text=Portfolio%20Design%20for%20Creatives",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c020501000000000000000"
+        },
+        "title": "Portfolio storytelling",
+        "description": "Start with the core ideas behind portfolio design for creatives.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.interaction-design.org/literature/topics/design-portfolios",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c020502000000000000000"
+        },
+        "title": "Case study structure",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.nngroup.com/articles/ux-case-study/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T10:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T10:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T10:10:00.000Z"
+    }
+  }
+]

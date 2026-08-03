@@ -1,0 +1,302 @@
+[
+  {
+    "_id": {
+      "$oid": "66c080100000000000000000"
+    },
+    "title": "Time Management for Busy Students",
+    "slug": "time-management-for-busy-students",
+    "shortDescription": "Organize study, work, family, and personal responsibilities with practical systems.",
+    "description": "Organize study, work, family, and personal responsibilities with practical systems. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae40"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Time%20Management%20for%20Busy%20Students",
+    "isFree": true,
+    "price": 0,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c080101000000000000000"
+        },
+        "title": "Time management basics",
+        "description": "Start with the core ideas behind time management for busy students.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://learningcenter.unc.edu/tips-and-tools/time-management-10-strategies-for-better-time-management/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c080102000000000000000"
+        },
+        "title": "Prioritization methods",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://todoist.com/productivity-methods/eisenhower-matrix",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:50:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c080200000000000000000"
+    },
+    "title": "Career Readiness and Job Search Skills",
+    "slug": "career-readiness-and-job-search-skills",
+    "shortDescription": "Prepare CVs, interviews, portfolios, and professional communication for early careers.",
+    "description": "Prepare CVs, interviews, portfolios, and professional communication for early careers. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae40"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Career%20Readiness%20and%20Job%20Search%20Skills",
+    "isFree": false,
+    "price": 12000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c080201000000000000000"
+        },
+        "title": "Resume guidance",
+        "description": "Start with the core ideas behind career readiness and job search skills.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://careerservices.fas.harvard.edu/resources/create-a-strong-resume/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c080202000000000000000"
+        },
+        "title": "Interview preparation",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://careerservices.fas.harvard.edu/channels/interview/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T14:55:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T14:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T14:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c080300000000000000000"
+    },
+    "title": "Communication Skills for Teamwork",
+    "slug": "communication-skills-for-teamwork",
+    "shortDescription": "Improve listening, feedback, conflict handling, and collaboration in teams.",
+    "description": "Improve listening, feedback, conflict handling, and collaboration in teams. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae40"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "all-levels",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Communication%20Skills%20for%20Teamwork",
+    "isFree": false,
+    "price": 10000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c080301000000000000000"
+        },
+        "title": "Active listening overview",
+        "description": "Start with the core ideas behind communication skills for teamwork.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.mindtools.com/az4wxv7/active-listening",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c080302000000000000000"
+        },
+        "title": "Team communication basics",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://asana.com/resources/team-communication",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T15:00:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T15:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T15:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c080400000000000000000"
+    },
+    "title": "Leadership Foundations for Young Professionals",
+    "slug": "leadership-foundations-for-young-professionals",
+    "shortDescription": "Build self-awareness, responsibility, ethical decision-making, and team influence.",
+    "description": "Build self-awareness, responsibility, ethical decision-making, and team influence. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae40"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Leadership%20Foundations%20for%20Young%20Professionals",
+    "isFree": false,
+    "price": 15000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c080401000000000000000"
+        },
+        "title": "Leadership basics",
+        "description": "Start with the core ideas behind leadership foundations for young professionals.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.mindtools.com/a2fjsj1/what-is-leadership",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c080402000000000000000"
+        },
+        "title": "Ethical leadership",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.scu.edu/ethics/focus-areas/business-ethics/resources/ethical-leadership/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T15:05:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T15:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T15:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66c080500000000000000000"
+    },
+    "title": "Personal Finance Basics for Learners",
+    "slug": "personal-finance-basics-for-learners",
+    "shortDescription": "Understand budgeting, saving habits, financial goals, and responsible money decisions.",
+    "description": "Understand budgeting, saving habits, financial goals, and responsible money decisions. This course is designed for Cameroonian university students, graduates, independent learners, tutors, and small training organisations. It uses concise text lessons and external resources so learners can study on mobile devices and unstable networks without relying on hosted video.",
+    "category": {
+      "$oid": "6a6fc07b178ff0cdd1d3ae40"
+    },
+    "instructor": {
+      "$oid": "6a6fc2833d68b47c4378d595"
+    },
+    "level": "beginner",
+    "language": "English",
+    "thumbnailUrl": "https://placehold.co/1280x720/F59E0B/FFFFFF?text=Personal%20Finance%20Basics%20for%20Learners",
+    "isFree": false,
+    "price": 10000,
+    "currency": "XAF",
+    "status": "published",
+    "modules": [
+      {
+        "_id": {
+          "$oid": "66c080501000000000000000"
+        },
+        "title": "Budgeting basics",
+        "description": "Start with the core ideas behind personal finance basics for learners.",
+        "textContent": "This module introduces practical foundations and key vocabulary. Focus on the concepts, then open the resource link for deeper practice.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.consumerfinance.gov/consumer-tools/budgeting/",
+        "order": 0,
+        "isPreview": true
+      },
+      {
+        "_id": {
+          "$oid": "66c080502000000000000000"
+        },
+        "title": "Savings goals",
+        "description": "Apply the course ideas through practical study and small exercises.",
+        "textContent": "This module turns the course topic into hands-on practice. Use the linked resource to reinforce the lesson and build your own examples.",
+        "videoUrl": null,
+        "resourceUrl": "https://www.consumerfinance.gov/consumer-tools/saving-money/",
+        "order": 1,
+        "isPreview": false
+      }
+    ],
+    "averageRating": 0,
+    "reviewCount": 0,
+    "enrollmentCount": 0,
+    "publishedAt": {
+      "$date": "2026-08-03T15:10:00.000Z"
+    },
+    "createdAt": {
+      "$date": "2026-08-03T15:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-03T15:10:00.000Z"
+    }
+  }
+]
