@@ -7,12 +7,15 @@ import { ConfirmDialog } from '../common/ConfirmDialog';
 import { Input } from '../common/Input';
 import { Select } from '../common/Select';
 import { Textarea } from '../common/Textarea';
+import { ErrorMessage } from '../feedback/ErrorMessage';
 import { FormField } from '../forms/FormField';
 import type { Category, Course, CourseFormRequest, CourseModuleInput } from '../../types/course';
 
 type CourseFormProps = {
   categories: Category[];
   course?: Course | null;
+  fieldErrors?: Record<string, string[]>;
+  formError?: string | null;
   isSubmitting: boolean;
   onSaveDraft: (input: CourseFormRequest) => Promise<void>;
   onPublish: (input: CourseFormRequest) => Promise<void>;
@@ -43,6 +46,8 @@ const emptyForm: CourseFormRequest = {
 export function CourseForm({
   categories,
   course,
+  fieldErrors,
+  formError,
   isSubmitting,
   onPublish,
   onSaveDraft,
@@ -136,6 +141,17 @@ export function CourseForm({
     }
   };
 
+  const getFieldError = (path: string): string | undefined =>
+    fieldErrors?.[path]?.[0];
+
+  const getModuleFieldError = (
+    index: number,
+    path: keyof CourseModuleInput | 'root',
+  ): string | undefined =>
+    getFieldError(`modules.${index}.${path}`) ??
+    getFieldError(`modules.${index}`) ??
+    getFieldError('modules');
+
   const moveModule = (index: number, direction: -1 | 1) => {
     setForm((current) => {
       const nextModules = [...current.modules];
@@ -186,18 +202,31 @@ export function CourseForm({
 
   return (
     <form className="space-y-6" onSubmit={(event) => event.preventDefault()}>
+      {formError ? (
+        <ErrorMessage message={formError} title="Course validation needs attention" />
+      ) : null}
       <section className="rounded-lg border border-slate-200 bg-white p-5">
         <h2 className="text-xl font-bold text-brand-navy">Basic information</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <FormField htmlFor="title" label="Course title">
+          <FormField
+            error={getFieldError('title')}
+            htmlFor="title"
+            label="Course title"
+          >
             <Input
+              hasError={Boolean(getFieldError('title'))}
               id="title"
               onChange={(event) => update('title', event.target.value)}
               value={form.title}
             />
           </FormField>
-          <FormField htmlFor="category" label="Category">
+          <FormField
+            error={getFieldError('categoryId')}
+            htmlFor="category"
+            label="Category"
+          >
             <Select
+              hasError={Boolean(getFieldError('categoryId'))}
               id="category"
               onChange={(event) => update('categoryId', event.target.value)}
               value={form.categoryId}
@@ -210,22 +239,33 @@ export function CourseForm({
               ))}
             </Select>
           </FormField>
-          <FormField htmlFor="shortDescription" label="Short description">
+          <FormField
+            error={getFieldError('shortDescription')}
+            htmlFor="shortDescription"
+            label="Short description"
+          >
             <Textarea
+              hasError={Boolean(getFieldError('shortDescription'))}
               id="shortDescription"
               onChange={(event) => update('shortDescription', event.target.value)}
               value={form.shortDescription}
             />
           </FormField>
-          <FormField htmlFor="description" label="Full description">
+          <FormField
+            error={getFieldError('description')}
+            htmlFor="description"
+            label="Full description"
+          >
             <Textarea
+              hasError={Boolean(getFieldError('description'))}
               id="description"
               onChange={(event) => update('description', event.target.value)}
               value={form.description}
             />
           </FormField>
-          <FormField htmlFor="level" label="Level">
+          <FormField error={getFieldError('level')} htmlFor="level" label="Level">
             <Select
+              hasError={Boolean(getFieldError('level'))}
               id="level"
               onChange={(event) =>
                 update('level', event.target.value as CourseFormRequest['level'])
@@ -238,15 +278,25 @@ export function CourseForm({
               <option value="all-levels">All levels</option>
             </Select>
           </FormField>
-          <FormField htmlFor="language" label="Language">
+          <FormField
+            error={getFieldError('language')}
+            htmlFor="language"
+            label="Language"
+          >
             <Input
+              hasError={Boolean(getFieldError('language'))}
               id="language"
               onChange={(event) => update('language', event.target.value)}
               value={form.language}
             />
           </FormField>
-          <FormField htmlFor="thumbnailUrl" label="Thumbnail URL">
+          <FormField
+            error={getFieldError('thumbnailUrl')}
+            htmlFor="thumbnailUrl"
+            label="Thumbnail URL"
+          >
             <Input
+              hasError={Boolean(getFieldError('thumbnailUrl'))}
               id="thumbnailUrl"
               onChange={(event) => update('thumbnailUrl', event.target.value)}
               value={form.thumbnailUrl ?? ''}
@@ -286,8 +336,13 @@ export function CourseForm({
             </div>
             {!form.isFree ? (
               <div className="mt-4 max-w-sm">
-                <FormField htmlFor="price" label="Price in XAF">
+                <FormField
+                  error={getFieldError('price')}
+                  htmlFor="price"
+                  label="Price in XAF"
+                >
                   <Input
+                    hasError={Boolean(getFieldError('price'))}
                     id="price"
                     min={0}
                     onChange={(event) => updatePrice(event.target.value)}
@@ -344,30 +399,35 @@ export function CourseForm({
               <div className="grid gap-3 md:grid-cols-2">
                 <Input
                   aria-label="Module title"
+                  hasError={Boolean(getModuleFieldError(index, 'title'))}
                   onChange={(event) => updateModule(index, 'title', event.target.value)}
                   placeholder="Module title"
                   value={module.title}
                 />
                 <Input
                   aria-label="Module video URL"
+                  hasError={Boolean(getModuleFieldError(index, 'videoUrl'))}
                   onChange={(event) => updateModule(index, 'videoUrl', event.target.value)}
                   placeholder="External video URL"
                   value={module.videoUrl ?? ''}
                 />
                 <Textarea
                   aria-label="Module description"
+                  hasError={Boolean(getModuleFieldError(index, 'description'))}
                   onChange={(event) => updateModule(index, 'description', event.target.value)}
                   placeholder="Description"
                   value={module.description ?? ''}
                 />
                 <Textarea
                   aria-label="Text content"
+                  hasError={Boolean(getModuleFieldError(index, 'textContent'))}
                   onChange={(event) => updateModule(index, 'textContent', event.target.value)}
                   placeholder="Text content"
                   value={module.textContent ?? ''}
                 />
                 <Input
                   aria-label="Resource URL"
+                  hasError={Boolean(getModuleFieldError(index, 'resourceUrl'))}
                   onChange={(event) => updateModule(index, 'resourceUrl', event.target.value)}
                   placeholder="Resource URL"
                   value={module.resourceUrl ?? ''}
@@ -382,6 +442,21 @@ export function CourseForm({
                   Allow public preview
                 </label>
               </div>
+              {[
+                getModuleFieldError(index, 'title'),
+                getModuleFieldError(index, 'description'),
+                getModuleFieldError(index, 'textContent'),
+                getModuleFieldError(index, 'videoUrl'),
+                getModuleFieldError(index, 'resourceUrl'),
+                getModuleFieldError(index, 'root'),
+              ]
+                .filter((message): message is string => Boolean(message))
+                .filter((message, messageIndex, messages) => messages.indexOf(message) === messageIndex)
+                .map((message) => (
+                  <p className="mt-2 text-xs font-semibold text-danger" key={message}>
+                    {message}
+                  </p>
+                ))}
             </div>
           ))}
         </div>

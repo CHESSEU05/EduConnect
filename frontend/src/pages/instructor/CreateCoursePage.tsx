@@ -13,7 +13,11 @@ import { ErrorMessage } from '../../components/feedback/ErrorMessage';
 import { PageLoader } from '../../components/feedback/PageLoader';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import type { Category, CourseFormRequest } from '../../types/course';
-import { getErrorMessage } from '../../utils/errors';
+import {
+  getDetailedErrorMessage,
+  getErrorMessage,
+  getFieldErrors,
+} from '../../utils/errors';
 
 export function CreateCoursePage() {
   useDocumentTitle('Create Course');
@@ -22,6 +26,8 @@ export function CreateCoursePage() {
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]> | undefined>();
 
   const load = async () => {
     setStatus('loading');
@@ -41,6 +47,8 @@ export function CreateCoursePage() {
 
   const save = async (input: CourseFormRequest, publish: boolean) => {
     setIsSubmitting(true);
+    setFormError(null);
+    setFieldErrors(undefined);
 
     try {
       const course = await createInstructorCourseRequest(input);
@@ -54,7 +62,10 @@ export function CreateCoursePage() {
 
       navigate('/instructor/courses');
     } catch (saveError) {
-      toast.error(getErrorMessage(saveError));
+      const message = getDetailedErrorMessage(saveError);
+      setFormError(message);
+      setFieldErrors(getFieldErrors(saveError));
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -82,6 +93,8 @@ export function CreateCoursePage() {
       </header>
       <CourseForm
         categories={categories}
+        fieldErrors={fieldErrors}
+        formError={formError}
         isSubmitting={isSubmitting}
         onPublish={(input) => save(input, true)}
         onSaveDraft={(input) => save(input, false)}

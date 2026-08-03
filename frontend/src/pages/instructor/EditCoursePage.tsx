@@ -15,7 +15,11 @@ import { ErrorMessage } from '../../components/feedback/ErrorMessage';
 import { PageLoader } from '../../components/feedback/PageLoader';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import type { Category, Course, CourseFormRequest } from '../../types/course';
-import { getErrorMessage } from '../../utils/errors';
+import {
+  getDetailedErrorMessage,
+  getErrorMessage,
+  getFieldErrors,
+} from '../../utils/errors';
 
 export function EditCoursePage() {
   const { courseId } = useParams<{ courseId: string }>();
@@ -25,6 +29,8 @@ export function EditCoursePage() {
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]> | undefined>();
   useDocumentTitle(course?.title ? `Edit ${course.title}` : 'Edit Course');
 
   const load = useCallback(async () => {
@@ -60,6 +66,8 @@ export function EditCoursePage() {
     }
 
     setIsSubmitting(true);
+    setFormError(null);
+    setFieldErrors(undefined);
 
     try {
       await updateInstructorCourseRequest(courseId, input);
@@ -77,7 +85,10 @@ export function EditCoursePage() {
 
       navigate('/instructor/courses');
     } catch (saveError) {
-      toast.error(getErrorMessage(saveError));
+      const message = getDetailedErrorMessage(saveError);
+      setFormError(message);
+      setFieldErrors(getFieldErrors(saveError));
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -106,6 +117,8 @@ export function EditCoursePage() {
       <CourseForm
         categories={categories}
         course={course}
+        fieldErrors={fieldErrors}
+        formError={formError}
         isSubmitting={isSubmitting}
         onPublish={(input) => save(input, true)}
         onSaveDraft={(input) => save(input, false)}
