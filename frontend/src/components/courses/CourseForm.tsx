@@ -48,12 +48,14 @@ export function CourseForm({
   onSaveDraft,
 }: CourseFormProps) {
   const [form, setForm] = useState<CourseFormRequest>(emptyForm);
+  const [priceValue, setPriceValue] = useState(String(emptyForm.price));
   const [pendingPublishInput, setPendingPublishInput] =
     useState<CourseFormRequest | null>(null);
 
   useEffect(() => {
     if (!course) {
       setForm(emptyForm);
+      setPriceValue(String(emptyForm.price));
       return;
     }
 
@@ -77,6 +79,7 @@ export function CourseForm({
           isPreview: module.isPreview,
         })) ?? [emptyModule()],
     });
+    setPriceValue(String(course.isFree ? 0 : course.price));
   }, [course]);
 
   const update = <Key extends keyof CourseFormRequest>(
@@ -101,6 +104,36 @@ export function CourseForm({
         moduleIndex === index ? { ...module, [key]: value } : module,
       ),
     }));
+  };
+
+  const setPricingMode = (isFree: boolean) => {
+    setForm((current) => ({
+      ...current,
+      isFree,
+      price: isFree ? 0 : current.price > 0 ? current.price : 10000,
+    }));
+    setPriceValue((current) => {
+      if (isFree) {
+        return '0';
+      }
+
+      return Number(current) > 0 ? current : '10000';
+    });
+  };
+
+  const updatePrice = (value: string) => {
+    setPriceValue(value);
+
+    if (value === '') {
+      setForm((current) => ({ ...current, price: 0 }));
+      return;
+    }
+
+    const parsedPrice = Number(value);
+
+    if (Number.isFinite(parsedPrice)) {
+      setForm((current) => ({ ...current, price: parsedPrice }));
+    }
   };
 
   const moveModule = (index: number, direction: -1 | 1) => {
@@ -219,24 +252,51 @@ export function CourseForm({
               value={form.thumbnailUrl ?? ''}
             />
           </FormField>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex items-center gap-2 rounded-md border border-slate-200 p-3 text-sm font-semibold">
-              <Checkbox
-                checked={form.isFree}
-                onChange={(event) => update('isFree', event.target.checked)}
-              />
-              Free course
-            </label>
-            <FormField htmlFor="price" label="Price in XAF">
-              <Input
-                disabled={form.isFree}
-                id="price"
-                min={0}
-                onChange={(event) => update('price', Number(event.target.value))}
-                type="number"
-                value={form.price}
-              />
-            </FormField>
+          <div className="md:col-span-2">
+            <p className="text-sm font-semibold text-text-primary">Pricing</p>
+            <div className="mt-2 grid gap-3 sm:grid-cols-2">
+              <button
+                className={`rounded-md border p-4 text-left transition ${
+                  form.isFree
+                    ? 'border-brand-green bg-emerald-50 text-brand-navy ring-2 ring-emerald-100'
+                    : 'border-slate-200 bg-white text-text-secondary hover:border-brand-green'
+                }`}
+                onClick={() => setPricingMode(true)}
+                type="button"
+              >
+                <span className="block text-sm font-extrabold">Free course</span>
+                <span className="mt-1 block text-xs font-semibold">
+                  Best for previews, community courses, and introductory content.
+                </span>
+              </button>
+              <button
+                className={`rounded-md border p-4 text-left transition ${
+                  !form.isFree
+                    ? 'border-brand-blue bg-primary-50 text-brand-navy ring-2 ring-blue-100'
+                    : 'border-slate-200 bg-white text-text-secondary hover:border-brand-blue'
+                }`}
+                onClick={() => setPricingMode(false)}
+                type="button"
+              >
+                <span className="block text-sm font-extrabold">Paid course</span>
+                <span className="mt-1 block text-xs font-semibold">
+                  Display a course price in XAF without payment processing.
+                </span>
+              </button>
+            </div>
+            {!form.isFree ? (
+              <div className="mt-4 max-w-sm">
+                <FormField htmlFor="price" label="Price in XAF">
+                  <Input
+                    id="price"
+                    min={0}
+                    onChange={(event) => updatePrice(event.target.value)}
+                    type="number"
+                    value={priceValue}
+                  />
+                </FormField>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

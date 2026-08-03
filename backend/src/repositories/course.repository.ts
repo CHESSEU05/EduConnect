@@ -311,6 +311,30 @@ export class CourseRepository {
       .exec();
   }
 
+  public async restoreByIdForInstructor(
+    courseId: string,
+    instructorId: string,
+  ): Promise<CourseDocument | null> {
+    return Course.findOneAndUpdate(
+      {
+        _id: courseId,
+        instructor: instructorId,
+      },
+      {
+        $set: {
+          status: "draft",
+          publishedAt: null,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    )
+      .populate(safePopulate)
+      .exec();
+  }
+
   public async deleteByIdForInstructor(
     courseId: string,
     instructorId: string,

@@ -289,6 +289,28 @@ export class CourseService {
     return this.toCourseResponse(updatedCourse);
   }
 
+  public async restoreInstructorCourse(
+    instructorId: string,
+    courseId: string,
+  ): Promise<CourseResponse> {
+    const course = await this.getOwnedCourseDocument(instructorId, courseId);
+
+    if (course.status !== "archived") {
+      throw new AppError("Only archived courses can be restored.", 409);
+    }
+
+    const updatedCourse = await this.courses.restoreByIdForInstructor(
+      courseId,
+      instructorId,
+    );
+
+    if (!updatedCourse) {
+      throw new AppError("Course not found.", 404);
+    }
+
+    return this.toCourseResponse(updatedCourse);
+  }
+
   public async deleteInstructorCourse(
     instructorId: string,
     courseId: string,

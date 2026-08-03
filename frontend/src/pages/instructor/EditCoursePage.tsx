@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 
@@ -6,6 +6,7 @@ import { listCategoriesRequest } from '../../api/category.api';
 import {
   getInstructorCourseRequest,
   publishInstructorCourseRequest,
+  restoreInstructorCourseRequest,
   updateInstructorCourseRequest,
 } from '../../api/course.api';
 import { CourseForm } from '../../components/courses/CourseForm';
@@ -26,7 +27,7 @@ export function EditCoursePage() {
   const [error, setError] = useState<string | null>(null);
   useDocumentTitle(course?.title ? `Edit ${course.title}` : 'Edit Course');
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!courseId) {
       setError('Course id is missing.');
       setStatus('error');
@@ -47,11 +48,11 @@ export function EditCoursePage() {
       setError(getErrorMessage(loadError));
       setStatus('error');
     }
-  };
+  }, [courseId]);
 
   useEffect(() => {
     void load();
-  }, [courseId]);
+  }, [load]);
 
   const save = async (input: CourseFormRequest, publish: boolean) => {
     if (!courseId) {
@@ -64,6 +65,10 @@ export function EditCoursePage() {
       await updateInstructorCourseRequest(courseId, input);
 
       if (publish) {
+        if (course?.status === 'archived') {
+          await restoreInstructorCourseRequest(courseId);
+        }
+
         await publishInstructorCourseRequest(courseId);
         toast.success('Course published successfully.');
       } else {

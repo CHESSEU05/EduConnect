@@ -1,5 +1,5 @@
-import { Edit, Eye, Search, Trash2, Users } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Edit, Eye, RotateCcw, Search, Trash2, Users } from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 
@@ -8,6 +8,7 @@ import {
   deleteInstructorCourseRequest,
   listInstructorCoursesRequest,
   publishInstructorCourseRequest,
+  restoreInstructorCourseRequest,
 } from '../../api/course.api';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
@@ -25,9 +26,20 @@ import { formatXaf } from '../../utils/currency';
 import { getErrorMessage } from '../../utils/errors';
 
 type ConfirmAction = {
-  type: 'publish' | 'archive' | 'delete';
+  type: 'publish' | 'archive' | 'restore' | 'delete';
   course: Course;
 } | null;
+
+const getActionLabel = (type: NonNullable<ConfirmAction>['type']) => {
+  const labels: Record<NonNullable<ConfirmAction>['type'], string> = {
+    publish: 'Publish',
+    archive: 'Archive',
+    restore: 'Restore',
+    delete: 'Delete',
+  };
+
+  return labels[type];
+};
 
 export function InstructorCoursesPage() {
   useDocumentTitle('Instructor Courses');
@@ -41,7 +53,7 @@ export function InstructorCoursesPage() {
   const [isMutating, setIsMutating] = useState(false);
   const debouncedSearch = useDebounce(search);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     setStatus('loading');
     setError(null);
 
@@ -58,11 +70,11 @@ export function InstructorCoursesPage() {
       setError(getErrorMessage(loadError));
       setStatus('error');
     }
-  };
+  }, [debouncedSearch, page, statusFilter]);
 
   useEffect(() => {
     void load();
-  }, [debouncedSearch, page, statusFilter]);
+  }, [load]);
 
   const runConfirmAction = async () => {
     if (!confirmAction) {
@@ -80,6 +92,11 @@ export function InstructorCoursesPage() {
       if (confirmAction.type === 'archive') {
         await archiveInstructorCourseRequest(confirmAction.course.id);
         toast.success('Course archived successfully.');
+      }
+
+      if (confirmAction.type === 'restore') {
+        await restoreInstructorCourseRequest(confirmAction.course.id);
+        toast.success('Course restored to draft successfully.');
       }
 
       if (confirmAction.type === 'delete') {
@@ -180,15 +197,27 @@ export function InstructorCoursesPage() {
                   <Link className="icon-action" to={`/instructor/courses/${course.id}/students`} title="Students">
                     <Users className="h-4 w-4" />
                   </Link>
-                  <Button onClick={() => setConfirmAction({ type: 'publish', course })} variant="outline">
-                    Publish
-                  </Button>
-                  <Button onClick={() => setConfirmAction({ type: 'archive', course })} variant="outline">
-                    Archive
-                  </Button>
-                  <Button onClick={() => setConfirmAction({ type: 'delete', course })} variant="ghost">
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
+                  {course.status === 'draft' ? (
+                    <Button onClick={() => setConfirmAction({ type: 'publish', course })} variant="outline">
+                      Publish
+                    </Button>
+                  ) : null}
+                  {course.status === 'draft' || course.status === 'published' ? (
+                    <Button onClick={() => setConfirmAction({ type: 'archive', course })} variant="outline">
+                      Archive
+                    </Button>
+                  ) : null}
+                  {course.status === 'archived' ? (
+                    <Button onClick={() => setConfirmAction({ type: 'restore', course })} variant="outline">
+                      <RotateCcw className="h-4 w-4" />
+                      Restore
+                    </Button>
+                  ) : null}
+                  {course.status === 'draft' && course.enrollmentCount === 0 ? (
+                    <Button onClick={() => setConfirmAction({ type: 'delete', course })} variant="ghost">
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  ) : null}
                 </div>
               </div>
             </article>
@@ -197,7 +226,7 @@ export function InstructorCoursesPage() {
         </div>
       ) : null}
       <ConfirmDialog
-        confirmLabel={confirmAction?.type === 'delete' ? 'Delete' : 'Confirm'}
+        confirmLabel={confirmAction ? getActionLabel(confirmAction.type) : 'Confirm'}
         isLoading={isMutating}
         isOpen={Boolean(confirmAction)}
         message={`This will ${confirmAction?.type ?? 'update'} "${confirmAction?.course.title ?? 'this course'}".`}

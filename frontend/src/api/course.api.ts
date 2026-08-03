@@ -104,6 +104,16 @@ export const archiveInstructorCourseRequest = async (
   return response.data.data.course;
 };
 
+export const restoreInstructorCourseRequest = async (
+  courseId: string,
+): Promise<Course> => {
+  const response = await apiClient.patch<ApiResponse<{ course: Course }>>(
+    `/instructor/courses/${courseId}/restore`,
+  );
+
+  return response.data.data.course;
+};
+
 export const deleteInstructorCourseRequest = async (
   courseId: string,
 ): Promise<void> => {

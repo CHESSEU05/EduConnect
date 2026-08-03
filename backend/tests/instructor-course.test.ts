@@ -39,6 +39,7 @@ const courseRepositoryMock = vi.hoisted(() => ({
   updateByIdForInstructor: vi.fn(),
   publishByIdForInstructor: vi.fn(),
   archiveByIdForInstructor: vi.fn(),
+  restoreByIdForInstructor: vi.fn(),
   deleteByIdForInstructor: vi.fn(),
   findPublicCourses: vi.fn(),
   countPublicCourses: vi.fn(),
@@ -272,6 +273,9 @@ describe("instructor course management", () => {
     courses.archiveByIdForInstructor.mockResolvedValue(
       createCourseDocument({ status: "archived" }),
     );
+    courses.restoreByIdForInstructor.mockResolvedValue(
+      createCourseDocument({ status: "draft", publishedAt: null }),
+    );
     courses.deleteByIdForInstructor.mockResolvedValue(createCourseDocument());
   });
 
@@ -429,6 +433,34 @@ describe("instructor course management", () => {
     const body = response.body as ApiResponse;
 
     expect(body.data?.course?.status).toBe("archived");
+  });
+
+  it("restores an archived course to draft", async () => {
+    courses.findByIdForInstructor.mockResolvedValueOnce(
+      createCourseDocument({ status: "archived" }),
+    );
+
+    const response = await request(app)
+      .patch(`/api/v1/instructor/courses/${courseId}/restore`)
+      .set("Authorization", `Bearer ${instructorToken}`)
+      .expect(200);
+    const body = response.body as ApiResponse;
+
+    expect(body.message).toBe("Course restored successfully");
+    expect(body.data?.course?.status).toBe("draft");
+    expect(courses.restoreByIdForInstructor).toHaveBeenCalledWith(
+      courseId,
+      instructorId,
+    );
+  });
+
+  it("rejects restoring a course that is not archived", async () => {
+    await request(app)
+      .patch(`/api/v1/instructor/courses/${courseId}/restore`)
+      .set("Authorization", `Bearer ${instructorToken}`)
+      .expect(409);
+
+    expect(courses.restoreByIdForInstructor).not.toHaveBeenCalled();
   });
 
   it("deletes a draft without enrollments", async () => {

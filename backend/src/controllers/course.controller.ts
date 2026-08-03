@@ -133,6 +133,25 @@ export const archiveInstructorCourse = async (
   });
 };
 
+export const restoreInstructorCourse = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  const params = req.params as CourseIdParams;
+  const course = await courseService.restoreInstructorCourse(
+    getAuthenticatedInstructorId(req),
+    params.courseId,
+  );
+
+  res.status(200).json({
+    success: true,
+    message: "Course restored successfully",
+    data: {
+      course,
+    },
+  });
+};
+
 export const deleteInstructorCourse = async (
   req: Request,
   res: Response,

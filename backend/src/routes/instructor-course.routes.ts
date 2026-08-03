@@ -7,6 +7,7 @@ import {
   getInstructorCourse,
   listInstructorCourses,
   publishInstructorCourse,
+  restoreInstructorCourse,
   updateInstructorCourse,
 } from "../controllers/course.controller.js";
 import { listInstructorCourseEnrollments } from "../controllers/enrollment.controller.js";
@@ -69,6 +70,11 @@ instructorCourseRouter.patch(
   "/:courseId/archive",
   validateRequest({ params: courseIdParamsSchema }),
   asyncHandler(archiveInstructorCourse),
+);
+instructorCourseRouter.patch(
+  "/:courseId/restore",
+  validateRequest({ params: courseIdParamsSchema }),
+  asyncHandler(restoreInstructorCourse),
 );
 instructorCourseRouter.delete(
   "/:courseId",
