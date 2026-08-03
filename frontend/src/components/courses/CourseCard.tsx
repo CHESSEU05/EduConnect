@@ -5,11 +5,15 @@ import { Badge } from '../common/Badge';
 import { Card } from '../common/Card';
 import { RatingStars } from '../common/RatingStars';
 import type { Course } from '../../types/course';
+import type { EnrollmentStatus } from '../../types/enrollment';
 import { formatXaf } from '../../utils/currency';
 
 type CourseCardProps = {
+  actionLabel?: string;
   course: Course;
+  enrollmentStatus?: EnrollmentStatus;
   href?: string;
+  progressPercentage?: number;
 };
 
 const levelLabels: Record<Course['level'], string> = {
@@ -19,7 +23,16 @@ const levelLabels: Record<Course['level'], string> = {
   'all-levels': 'All levels',
 };
 
-export function CourseCard({ course, href = `/courses/${course.slug}` }: CourseCardProps) {
+export function CourseCard({
+  actionLabel = 'View course',
+  course,
+  enrollmentStatus,
+  href = `/courses/${course.slug}`,
+  progressPercentage,
+}: CourseCardProps) {
+  const hasProgress = progressPercentage !== undefined;
+  const normalizedProgress = Math.min(Math.max(progressPercentage ?? 0, 0), 100);
+
   return (
     <Card className="group overflow-hidden p-0">
       <Link className="block focus:outline-none" to={href}>
@@ -70,12 +83,38 @@ export function CourseCard({ course, href = `/courses/${course.slug}` }: CourseC
               {course.enrollmentCount}
             </span>
           </div>
+          {hasProgress ? (
+            <div className="mt-4">
+              <div className="flex items-center justify-between text-xs font-bold text-text-secondary">
+                <span>
+                  {enrollmentStatus === 'completed' ? 'Completed' : 'Progress'}
+                </span>
+                <span>{normalizedProgress}%</span>
+              </div>
+              <div className="mt-2 h-2 overflow-hidden rounded-full bg-primary-100">
+                <span
+                  className={`block h-full rounded-full transition-all ${
+                    enrollmentStatus === 'completed'
+                      ? 'bg-brand-green'
+                      : 'bg-brand-blue'
+                  }`}
+                  style={{ width: `${normalizedProgress}%` }}
+                />
+              </div>
+            </div>
+          ) : null}
           <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-bold text-text-secondary">
             <span className="inline-flex items-center gap-1">
               <Layers3 aria-hidden="true" className="h-4 w-4 text-brand-green" />
               {course.moduleCount} modules
             </span>
-            <span className="text-brand-blue">View course</span>
+            <span
+              className={
+                enrollmentStatus === 'completed' ? 'text-brand-green' : 'text-brand-blue'
+              }
+            >
+              {actionLabel}
+            </span>
           </div>
         </div>
       </Link>

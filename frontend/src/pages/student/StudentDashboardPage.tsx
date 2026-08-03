@@ -99,9 +99,14 @@ export function StudentDashboardPage() {
           <div className="grid gap-4 lg:grid-cols-3">
             {enrollments.slice(0, 3).map((enrollment) => (
               <CourseCard
+                actionLabel={
+                  enrollment.status === 'completed' ? 'View course' : 'Continue'
+                }
                 course={enrollment.course}
+                enrollmentStatus={enrollment.status}
                 href={`/student/courses/${enrollment.course.id}/learn`}
                 key={enrollment.id}
+                progressPercentage={enrollment.progressPercentage}
               />
             ))}
           </div>

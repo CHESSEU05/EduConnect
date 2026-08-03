@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { listMyEnrollmentsRequest } from '../../api/enrollment.api';
@@ -26,7 +26,7 @@ export function MyCoursesPage() {
   const [error, setError] = useState<string | null>(null);
   const debouncedSearch = useDebounce(search);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     setStatus('loading');
     setError(null);
 
@@ -44,11 +44,11 @@ export function MyCoursesPage() {
       setError(getErrorMessage(loadError));
       setStatus('error');
     }
-  };
+  }, [debouncedSearch, page, statusFilter]);
 
   useEffect(() => {
     void load();
-  }, [debouncedSearch, page, statusFilter]);
+  }, [load]);
 
   return (
     <div>
@@ -134,12 +134,34 @@ export function MyCoursesPage() {
                   {enrollment.course.instructor.firstName}{' '}
                   {enrollment.course.instructor.lastName}
                 </p>
+                <div className="mt-3 max-w-xl">
+                  <div className="flex items-center justify-between text-xs font-bold text-text-secondary">
+                    <span>
+                      {enrollment.status === 'completed' ? 'Completed' : 'Progress'}
+                    </span>
+                    <span>{enrollment.progressPercentage}%</span>
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-primary-100">
+                    <span
+                      className={`block h-full rounded-full transition-all ${
+                        enrollment.status === 'completed'
+                          ? 'bg-brand-green'
+                          : 'bg-brand-blue'
+                      }`}
+                      style={{ width: `${enrollment.progressPercentage}%` }}
+                    />
+                  </div>
+                </div>
               </div>
               <Link
-                className="inline-flex min-h-11 items-center justify-center rounded-md bg-brand-blue px-4 text-sm font-bold text-white"
+                className={`inline-flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-bold text-white ${
+                  enrollment.status === 'completed'
+                    ? 'bg-brand-green'
+                    : 'bg-brand-blue'
+                }`}
                 to={`/student/courses/${enrollment.course.id}/learn`}
               >
-                Continue
+                {enrollment.status === 'completed' ? 'View course' : 'Continue'}
               </Link>
             </article>
           ))}
