@@ -23,6 +23,7 @@ app.use(helmet());
 app.use(
   cors({
     origin: corsOrigin,
+    credentials: true,
   }),
 );
 app.use(express.json({ limit: env.JSON_BODY_LIMIT }));

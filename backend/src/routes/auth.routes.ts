@@ -1,6 +1,12 @@
 import { Router } from 'express';
 
-import { getMe, login, register } from '../controllers/auth.controller.js';
+import {
+  getMe,
+  login,
+  logout,
+  refresh,
+  register,
+} from '../controllers/auth.controller.js';
 import { authenticate } from '../middleware/authenticate.js';
 import { validateRequest } from '../middleware/validate-request.js';
 import { asyncHandler } from '../utils/async-handler.js';
@@ -10,6 +16,8 @@ const authRouter = Router();
 
 authRouter.get('/me', asyncHandler(authenticate), asyncHandler(getMe));
 authRouter.post('/login', validateRequest({ body: loginSchema }), asyncHandler(login));
+authRouter.post('/refresh', asyncHandler(refresh));
+authRouter.post('/logout', asyncHandler(logout));
 authRouter.post('/register', validateRequest({ body: registerSchema }), asyncHandler(register));
 
 export { authRouter };

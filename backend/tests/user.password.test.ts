@@ -28,9 +28,21 @@ const userRepositoryMock = vi.hoisted(() => ({
   updateLastLogin: vi.fn(),
 }));
 
+const refreshTokenRepositoryMock = vi.hoisted(() => ({
+  create: vi.fn(),
+  findByTokenHash: vi.fn(),
+  revokeByTokenHash: vi.fn(),
+  revokeActiveForUser: vi.fn(),
+}));
+
 vi.mock('../src/repositories/user.repository.js', () => ({
   userRepository: userRepositoryMock,
   UserRepository: class UserRepository {},
+}));
+
+vi.mock('../src/repositories/refresh-token.repository.js', () => ({
+  refreshTokenRepository: refreshTokenRepositoryMock,
+  RefreshTokenRepository: class RefreshTokenRepository {},
 }));
 
 type ApiResponse = {
@@ -46,6 +58,9 @@ type RepositoryMock = {
 };
 
 const repository = userRepositoryMock as RepositoryMock;
+const refreshTokens = refreshTokenRepositoryMock as {
+  [Key in keyof typeof refreshTokenRepositoryMock]: Mock;
+};
 const userId = '64f1a2b3c4d5e6f789012345';
 const oldPassword = 'OldStrong1!';
 const newPassword = 'NewStrong1!';
@@ -129,6 +144,7 @@ describe('PATCH /api/v1/users/change-password', () => {
       Promise.resolve(createUserDocument()),
     );
     repository.updateLastLogin.mockResolvedValue(createUserDocument());
+    refreshTokens.create.mockResolvedValue({});
   });
 
   it('changes the password successfully', async () => {

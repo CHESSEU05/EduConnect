@@ -36,3 +36,15 @@ export const getCurrentUserRequest = async (): Promise<LoginResponseData['user']
 
   return response.data.data.user;
 };
+
+export const refreshSessionRequest = async (): Promise<LoginResponseData> => {
+  const response = await apiClient.post<ApiResponse<LoginResponseData>>(
+    '/auth/refresh',
+  );
+
+  return response.data.data;
+};
+
+export const logoutRequest = async (): Promise<void> => {
+  await apiClient.post('/auth/logout');
+};

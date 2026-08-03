@@ -2,7 +2,35 @@ import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
 import { env } from '../config/env';
 import type { ApiError, ApiErrorResponse } from '../types/api';
-import { clearStoredAuth, readAccessToken } from '../utils/storage';
+import {
+  clearStoredAuth,
+  readAccessToken,
+  writeAccessToken,
+  writeStoredUser,
+} from '../utils/storage';
+
+type EduConnectAxiosRequestConfig = InternalAxiosRequestConfig & {
+  _retry?: boolean;
+};
+
+type RefreshSessionResponse = {
+  success: true;
+  data: {
+    accessToken: string;
+    user: {
+      id: string;
+      firstName: string;
+      lastName: string;
+      username: string;
+      email: string;
+      role: 'student' | 'instructor' | 'admin';
+      status: 'active' | 'inactive' | 'suspended';
+      lastLoginAt?: string;
+      createdAt?: string;
+      updatedAt?: string;
+    };
+  };
+};
 
 export class ApiClientError extends Error {
   public readonly status?: number;
@@ -48,7 +76,29 @@ const shouldBroadcastUnauthorized = (error: AxiosError): boolean => {
 
   const url = error.config?.url ?? '';
 
-  return !url.includes('/auth/login') && !url.includes('/auth/register');
+  return (
+    !url.includes('/auth/login') &&
+    !url.includes('/auth/register') &&
+    !url.includes('/auth/refresh') &&
+    !url.includes('/auth/logout')
+  );
+};
+
+const shouldAttemptRefresh = (error: AxiosError): boolean => {
+  const config = error.config as EduConnectAxiosRequestConfig | undefined;
+  const url = config?.url ?? '';
+
+  return (
+    error.response?.status === 401 &&
+    isApiErrorResponse(error.response.data) &&
+    error.response.data.message === 'Access token has expired' &&
+    Boolean(config) &&
+    config?._retry !== true &&
+    !url.includes('/auth/login') &&
+    !url.includes('/auth/register') &&
+    !url.includes('/auth/refresh') &&
+    !url.includes('/auth/logout')
+  );
 };
 
 const normalizeAxiosError = (error: AxiosError): ApiClientError => {
@@ -88,10 +138,23 @@ const normalizeAxiosError = (error: AxiosError): ApiClientError => {
 export const apiClient = axios.create({
   baseURL: env.VITE_API_BASE_URL,
   timeout: 10_000,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
+let refreshPromise: Promise<string> | null = null;
+
+const refreshAccessToken = async (): Promise<string> => {
+  const response = await apiClient.post<RefreshSessionResponse>('/auth/refresh');
+  const { accessToken, user } = response.data.data;
+
+  writeAccessToken(accessToken);
+  writeStoredUser(user);
+
+  return accessToken;
+};
 
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
@@ -107,8 +170,32 @@ apiClient.interceptors.request.use(
 
 apiClient.interceptors.response.use(
   (response) => response,
-  (error: unknown) => {
+  async (error: unknown) => {
     if (axios.isAxiosError(error)) {
+      if (shouldAttemptRefresh(error)) {
+        const originalRequest = error.config as EduConnectAxiosRequestConfig;
+        originalRequest._retry = true;
+
+        try {
+          refreshPromise ??= refreshAccessToken();
+          const accessToken = await refreshPromise;
+          originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+
+          return apiClient(originalRequest);
+        } catch (refreshError) {
+          clearStoredAuth();
+          window.dispatchEvent(new CustomEvent('educonnect:unauthorized'));
+
+          if (axios.isAxiosError(refreshError)) {
+            return Promise.reject(normalizeAxiosError(refreshError));
+          }
+
+          return Promise.reject(refreshError);
+        } finally {
+          refreshPromise = null;
+        }
+      }
+
       return Promise.reject(normalizeAxiosError(error));
     }
 

@@ -11,6 +11,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   getCurrentUserRequest,
   loginRequest,
+  logoutRequest,
+  refreshSessionRequest,
   registerRequest,
 } from '../api/auth.api';
 import { ApiClientError } from '../api/client';
@@ -47,8 +49,17 @@ export function AuthProvider({ children }: PropsWithChildren) {
     const storedToken = readAccessToken();
 
     if (!storedToken) {
-      clearSession();
-      return null;
+      try {
+        const refreshedSession = await refreshSessionRequest();
+        setUser(refreshedSession.user);
+        setAccessToken(refreshedSession.accessToken);
+        writeAccessToken(refreshedSession.accessToken);
+        writeStoredUser(refreshedSession.user);
+        return refreshedSession.user;
+      } catch {
+        clearSession();
+        return null;
+      }
     }
 
     setAccessToken(storedToken);
@@ -154,8 +165,12 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, []);
 
   const logout = useCallback((): void => {
-    clearSession();
-    navigate('/login', { replace: true });
+    void logoutRequest()
+      .catch(() => undefined)
+      .finally(() => {
+        clearSession();
+        navigate('/login', { replace: true });
+      });
   }, [clearSession, navigate]);
 
   const value = useMemo<AuthContextValue>(

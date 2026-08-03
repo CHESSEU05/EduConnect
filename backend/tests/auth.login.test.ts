@@ -26,9 +26,21 @@ const userRepositoryMock = vi.hoisted(() => ({
   updateLastLogin: vi.fn(),
 }));
 
+const refreshTokenRepositoryMock = vi.hoisted(() => ({
+  create: vi.fn(),
+  findByTokenHash: vi.fn(),
+  revokeByTokenHash: vi.fn(),
+  revokeActiveForUser: vi.fn(),
+}));
+
 vi.mock('../src/repositories/user.repository.js', () => ({
   userRepository: userRepositoryMock,
   UserRepository: class UserRepository {},
+}));
+
+vi.mock('../src/repositories/refresh-token.repository.js', () => ({
+  refreshTokenRepository: refreshTokenRepositoryMock,
+  RefreshTokenRepository: class RefreshTokenRepository {},
 }));
 
 type LoginPayload = {
@@ -64,6 +76,9 @@ type RepositoryMock = {
 };
 
 const repository = userRepositoryMock as RepositoryMock;
+const refreshTokens = refreshTokenRepositoryMock as {
+  [Key in keyof typeof refreshTokenRepositoryMock]: Mock;
+};
 
 const plainPassword = 'StrongPass1!';
 const userId = '64f1a2b3c4d5e6f789012345';
@@ -124,6 +139,7 @@ describe('POST /api/v1/auth/login', () => {
 
     repository.findByEmailOrUsernameWithPasswordHash.mockResolvedValue(user);
     repository.updateLastLogin.mockResolvedValue(updatedUser);
+    refreshTokens.create.mockResolvedValue({});
   });
 
   it('logs in using email', async () => {
@@ -156,6 +172,9 @@ describe('POST /api/v1/auth/login', () => {
       },
     });
     expect(typeof body.data?.accessToken).toBe('string');
+    expect(response.headers['set-cookie']?.[0]).toContain(
+      'educonnect_refresh_token=',
+    );
   });
 
   it('logs in using username', async () => {
