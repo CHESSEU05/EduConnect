@@ -22,6 +22,35 @@ type LocationState = {
   };
 };
 
+const getDashboardPath = (role: 'student' | 'instructor' | 'admin'): string => {
+  if (role === 'instructor') {
+    return '/instructor';
+  }
+
+  return '/student';
+};
+
+const getSafeRedirectPath = (
+  requestedPath: string | undefined,
+  role: 'student' | 'instructor' | 'admin',
+): string => {
+  const dashboardPath = getDashboardPath(role);
+
+  if (!requestedPath || requestedPath === '/unauthorized') {
+    return dashboardPath;
+  }
+
+  if (role === 'student' && requestedPath.startsWith('/student')) {
+    return requestedPath;
+  }
+
+  if (role === 'instructor' && requestedPath.startsWith('/instructor')) {
+    return requestedPath;
+  }
+
+  return dashboardPath;
+};
+
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -51,9 +80,9 @@ export function LoginPage() {
         password: values.password,
       });
       const state = location.state as LocationState | null;
-      const fallbackPath = user.role === 'instructor' ? '/instructor' : '/student';
+      const redirectPath = getSafeRedirectPath(state?.from?.pathname, user.role);
       toast.success('Welcome back to EduConnect.');
-      navigate(state?.from?.pathname ?? fallbackPath, { replace: true });
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       if (error instanceof ApiClientError) {
         Object.entries(error.fieldErrors ?? {}).forEach(([field, messages]) => {
