@@ -60,6 +60,7 @@ const enrollmentRepositoryMock = vi.hoisted(() => ({
   findCourseEnrollments: vi.fn(),
   countCourseEnrollments: vi.fn(),
   updateLastAccessed: vi.fn(),
+  updateProgress: vi.fn(),
   countByCourseIds: vi.fn(),
   findRecentByCourseIds: vi.fn(),
 }));
@@ -106,6 +107,9 @@ type ApiResponse = {
   data?: {
     enrollment?: {
       id: string;
+      status?: string;
+      progressPercentage?: number;
+      completedAt?: string | null;
       course: {
         modules?: Array<{
           textContent?: string | null;
@@ -384,6 +388,12 @@ describe("learning domain routes", () => {
         lastAccessedAt: new Date("2026-03-03T00:00:00.000Z"),
       }),
     );
+    enrollments.updateProgress.mockResolvedValue(
+      createEnrollmentDocument({
+        progressPercentage: 50,
+        lastAccessedAt: new Date("2026-03-04T00:00:00.000Z"),
+      }),
+    );
     enrollments.findCourseEnrollments.mockResolvedValue([
       createEnrollmentDocument(),
     ]);
@@ -519,6 +529,64 @@ describe("learning domain routes", () => {
       "Full learning text",
     );
     expect(enrollments.updateLastAccessed).toHaveBeenCalledWith(enrollmentId);
+  });
+
+  it("updates learning progress for the current student", async () => {
+    const response = await request(app)
+      .patch(`/api/v1/students/me/enrollments/${courseId}/progress`)
+      .set("Authorization", `Bearer ${studentToken}`)
+      .send({ progressPercentage: 50 })
+      .expect(200);
+    const body = response.body as ApiResponse;
+
+    expect(body.message).toBe("Course progress updated successfully");
+    expect(enrollments.updateProgress).toHaveBeenCalledWith(enrollmentId, 50);
+    expect(body.data?.enrollment?.progressPercentage).toBe(50);
+  });
+
+  it("marks the enrollment completed at 100 percent", async () => {
+    enrollments.updateProgress.mockResolvedValueOnce(
+      createEnrollmentDocument({
+        status: "completed",
+        progressPercentage: 100,
+        completedAt: new Date("2026-03-04T00:00:00.000Z"),
+      }),
+    );
+
+    const response = await request(app)
+      .patch(`/api/v1/students/me/enrollments/${courseId}/progress`)
+      .set("Authorization", `Bearer ${studentToken}`)
+      .send({ progressPercentage: 100 })
+      .expect(200);
+    const body = response.body as ApiResponse;
+
+    expect(body.data?.enrollment?.status).toBe("completed");
+    expect(body.data?.enrollment?.completedAt).toBe("2026-03-04T00:00:00.000Z");
+  });
+
+  it("does not move learning progress backward", async () => {
+    enrollments.findByStudentAndCourseWithCourse.mockResolvedValueOnce(
+      createEnrollmentDocument({ progressPercentage: 75 }),
+    );
+    enrollments.updateProgress.mockResolvedValueOnce(
+      createEnrollmentDocument({ progressPercentage: 75 }),
+    );
+
+    await request(app)
+      .patch(`/api/v1/students/me/enrollments/${courseId}/progress`)
+      .set("Authorization", `Bearer ${studentToken}`)
+      .send({ progressPercentage: 25 })
+      .expect(200);
+
+    expect(enrollments.updateProgress).toHaveBeenCalledWith(enrollmentId, 75);
+  });
+
+  it("rejects invalid progress percentages", async () => {
+    await request(app)
+      .patch(`/api/v1/students/me/enrollments/${courseId}/progress`)
+      .set("Authorization", `Bearer ${studentToken}`)
+      .send({ progressPercentage: 120 })
+      .expect(400);
   });
 
   it("lets an enrolled student create a review", async () => {

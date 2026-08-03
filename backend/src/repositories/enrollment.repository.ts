@@ -183,6 +183,31 @@ export class EnrollmentRepository {
       .exec();
   }
 
+  public async updateProgress(
+    enrollmentId: string,
+    progressPercentage: number,
+  ): Promise<EnrollmentDocument | null> {
+    const isCompleted = progressPercentage >= 100;
+
+    return Enrollment.findByIdAndUpdate(
+      enrollmentId,
+      {
+        $set: {
+          progressPercentage,
+          status: isCompleted ? "completed" : "active",
+          lastAccessedAt: new Date(),
+          completedAt: isCompleted ? new Date() : null,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    )
+      .populate(coursePopulate)
+      .exec();
+  }
+
   public async countByCourseIds(courseIds: string[]): Promise<Map<string, number>> {
     const results = await Enrollment.aggregate<{
       _id: string;

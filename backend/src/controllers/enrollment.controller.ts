@@ -6,6 +6,7 @@ import type {
   CourseIdParams,
   InstructorEnrollmentQuery,
   StudentEnrollmentQuery,
+  UpdateEnrollmentProgressInput,
 } from "../validators/learning.validator.js";
 
 const getAuthenticatedUserId = (req: Request): string => {
@@ -65,6 +66,27 @@ export const getMyEnrollmentDetails = async (
   res.status(200).json({
     success: true,
     message: "Enrollment retrieved successfully",
+    data: {
+      enrollment,
+    },
+  });
+};
+
+export const updateMyEnrollmentProgress = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  const params = req.params as CourseIdParams;
+  const input = req.body as UpdateEnrollmentProgressInput;
+  const enrollment = await enrollmentService.updateStudentEnrollmentProgress(
+    getAuthenticatedUserId(req),
+    params.courseId,
+    input,
+  );
+
+  res.status(200).json({
+    success: true,
+    message: "Course progress updated successfully",
     data: {
       enrollment,
     },

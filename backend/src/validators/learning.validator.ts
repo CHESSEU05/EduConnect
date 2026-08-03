@@ -39,3 +39,11 @@ export const instructorEnrollmentQuerySchema = z.strictObject({
 export type InstructorEnrollmentQuery = z.infer<
   typeof instructorEnrollmentQuerySchema
 >;
+
+export const updateEnrollmentProgressSchema = z.strictObject({
+  progressPercentage: z.number().min(0).max(100),
+});
+
+export type UpdateEnrollmentProgressInput = z.infer<
+  typeof updateEnrollmentProgressSchema
+>;

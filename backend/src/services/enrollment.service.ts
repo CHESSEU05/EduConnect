@@ -21,6 +21,7 @@ import {
 import type {
   InstructorEnrollmentQuery,
   StudentEnrollmentQuery,
+  UpdateEnrollmentProgressInput,
 } from "../validators/learning.validator.js";
 
 type PaginationResponse = {
@@ -160,6 +161,47 @@ export class EnrollmentService {
     const updatedEnrollment =
       (await this.enrollments.updateLastAccessed(enrollment._id.toString())) ??
       enrollment;
+
+    return this.toEnrollmentResponse(
+      updatedEnrollment,
+      this.getPopulatedCourse(updatedEnrollment),
+      {
+        includeModules: true,
+      },
+    );
+  }
+
+  public async updateStudentEnrollmentProgress(
+    studentId: string,
+    courseId: string,
+    input: UpdateEnrollmentProgressInput,
+  ): Promise<EnrollmentResponse> {
+    this.assertCourseId(courseId);
+
+    const enrollment =
+      await this.enrollments.findByStudentAndCourseWithCourse(studentId, courseId);
+
+    if (!enrollment) {
+      throw new AppError("Enrollment not found.", 404);
+    }
+
+    if (enrollment.status === "cancelled") {
+      throw new AppError("Cancelled enrollments cannot be updated.", 400);
+    }
+
+    const nextProgressPercentage = Math.max(
+      enrollment.progressPercentage,
+      input.progressPercentage,
+    );
+
+    const updatedEnrollment = await this.enrollments.updateProgress(
+      enrollment._id.toString(),
+      nextProgressPercentage,
+    );
+
+    if (!updatedEnrollment) {
+      throw new AppError("Enrollment not found.", 404);
+    }
 
     return this.toEnrollmentResponse(
       updatedEnrollment,

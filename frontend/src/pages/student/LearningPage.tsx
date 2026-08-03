@@ -1,9 +1,12 @@
-import { ExternalLink } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { CheckCircle2, ExternalLink } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 
-import { getMyEnrollmentRequest } from '../../api/enrollment.api';
+import {
+  getMyEnrollmentRequest,
+  updateMyEnrollmentProgressRequest,
+} from '../../api/enrollment.api';
 import {
   createCourseReviewRequest,
   deleteMyCourseReviewRequest,
@@ -33,15 +36,27 @@ export function LearningPage() {
   const [error, setError] = useState<string | null>(null);
   const [isReviewing, setIsReviewing] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isUpdatingProgress, setIsUpdatingProgress] = useState(false);
   useDocumentTitle(enrollment?.course.title ?? 'Learning');
 
-  const modules = enrollment?.course.modules ?? [];
+  const modules = useMemo(() => enrollment?.course.modules ?? [], [enrollment]);
   const selectedModule = useMemo<CourseModule | undefined>(
     () => modules.find((module) => module.id === selectedModuleId) ?? modules[0],
     [modules, selectedModuleId],
   );
+  const selectedModuleProgress = useMemo(() => {
+    const selectedIndex = modules.findIndex(
+      (module) => module.id === selectedModule?.id,
+    );
 
-  const load = async () => {
+    if (selectedIndex < 0 || modules.length === 0) {
+      return enrollment?.progressPercentage ?? 0;
+    }
+
+    return Math.round(((selectedIndex + 1) / modules.length) * 100);
+  }, [enrollment?.progressPercentage, modules, selectedModule?.id]);
+
+  const load = useCallback(async () => {
     if (!courseId) {
       setError('Course id is missing.');
       setStatus('error');
@@ -64,11 +79,36 @@ export function LearningPage() {
       setError(getErrorMessage(loadError));
       setStatus('error');
     }
-  };
+  }, [courseId, user?.id]);
 
   useEffect(() => {
     void load();
-  }, [courseId, user?.id]);
+  }, [load]);
+
+  const updateProgress = async (progressPercentage: number) => {
+    if (!courseId) {
+      return;
+    }
+
+    setIsUpdatingProgress(true);
+
+    try {
+      const updatedEnrollment = await updateMyEnrollmentProgressRequest(
+        courseId,
+        progressPercentage,
+      );
+      setEnrollment(updatedEnrollment);
+      toast.success(
+        progressPercentage >= 100
+          ? 'Course marked as completed.'
+          : 'Learning progress updated.',
+      );
+    } catch (progressError) {
+      toast.error(getErrorMessage(progressError));
+    } finally {
+      setIsUpdatingProgress(false);
+    }
+  };
 
   if (status === 'loading') {
     return <PageLoader message="Loading learning content" />;
@@ -92,6 +132,18 @@ export function LearningPage() {
           {enrollment.course.title}
         </h1>
         <p className="mt-2 text-text-secondary">{enrollment.course.shortDescription}</p>
+        <div className="mt-5 max-w-2xl">
+          <div className="flex items-center justify-between text-sm font-bold text-text-secondary">
+            <span>Course progress</span>
+            <span>{enrollment.progressPercentage}%</span>
+          </div>
+          <div className="mt-2 h-2 overflow-hidden rounded-full bg-primary-100">
+            <span
+              className="block h-full rounded-full bg-brand-green transition-all"
+              style={{ width: `${enrollment.progressPercentage}%` }}
+            />
+          </div>
+        </div>
       </header>
       <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
         <aside className="rounded-lg border border-slate-200 bg-white p-3">
@@ -145,6 +197,22 @@ export function LearningPage() {
                 Open resource <ExternalLink className="h-4 w-4" />
               </a>
             ) : null}
+          </div>
+          <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row">
+            <Button
+              disabled={isUpdatingProgress || modules.length === 0}
+              onClick={() => void updateProgress(selectedModuleProgress)}
+              variant="outline"
+            >
+              <CheckCircle2 className="h-4 w-4" />
+              Mark module complete
+            </Button>
+            <Button
+              disabled={isUpdatingProgress || enrollment.progressPercentage >= 100}
+              onClick={() => void updateProgress(100)}
+            >
+              {isUpdatingProgress ? 'Updating...' : 'Mark course complete'}
+            </Button>
           </div>
         </section>
       </div>

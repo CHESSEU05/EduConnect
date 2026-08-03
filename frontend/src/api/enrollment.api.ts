@@ -42,6 +42,20 @@ export const getMyEnrollmentRequest = async (
   return response.data.data.enrollment;
 };
 
+export const updateMyEnrollmentProgressRequest = async (
+  courseId: string,
+  progressPercentage: number,
+): Promise<Enrollment> => {
+  const response = await apiClient.patch<ApiResponse<{ enrollment: Enrollment }>>(
+    `/students/me/enrollments/${courseId}/progress`,
+    {
+      progressPercentage,
+    },
+  );
+
+  return response.data.data.enrollment;
+};
+
 export const listInstructorCourseEnrollmentsRequest = async (
   courseId: string,
   query: StudentEnrollmentQuery = {},
