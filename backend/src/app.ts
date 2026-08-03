@@ -27,6 +27,17 @@ app.use(
 );
 app.use(express.json({ limit: env.JSON_BODY_LIMIT }));
 app.use(express.urlencoded({ extended: true, limit: env.URL_ENCODED_BODY_LIMIT }));
+
+app.get('/api/v1/health', (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'EduConnect API is running',
+    data: {
+      environment: env.NODE_ENV,
+    },
+  });
+});
+
 app.use(
   rateLimit({
     windowMs: env.RATE_LIMIT_WINDOW_MS,
@@ -43,16 +54,6 @@ app.use(
 if (env.NODE_ENV !== 'test') {
   app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 }
-
-app.get('/api/v1/health', (_req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'EduConnect API is running',
-    data: {
-      environment: env.NODE_ENV,
-    },
-  });
-});
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);

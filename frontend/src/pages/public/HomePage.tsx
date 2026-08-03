@@ -24,6 +24,7 @@ import { Logo } from '../../components/common/Logo';
 import { LoadingSpinner } from '../../components/feedback/LoadingSpinner';
 import { SkeletonBlock } from '../../components/feedback/SkeletonBlock';
 import { useApiHealth } from '../../hooks/useApiHealth';
+import { useAuth } from '../../hooks/useAuth';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import type { Category, Course } from '../../types/course';
 import { getErrorMessage } from '../../utils/errors';
@@ -48,6 +49,7 @@ const statusContent: Record<ApiStatus, { label: string; className: string }> = {
 export function HomePage() {
   useDocumentTitle('Home');
   const { data, errorMessage, status: healthStatus } = useApiHealth();
+  const { isAuthenticated, role, user } = useAuth();
   const [categories, setCategories] = useState<Category[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [contentStatus, setContentStatus] = useState<'loading' | 'success' | 'error'>(
@@ -61,6 +63,7 @@ export function HomePage() {
         ? 'connected'
         : 'unavailable';
   const status = statusContent[apiStatus];
+  const dashboardPath = role === 'instructor' ? '/instructor' : '/student';
 
   useEffect(() => {
     let isMounted = true;
@@ -130,20 +133,32 @@ export function HomePage() {
                 Explore courses
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Link>
-              <Link
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-brand-green bg-white px-4 py-2 text-sm font-bold text-brand-green shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-50"
-                to="/register?role=student"
-              >
-                <UserPlus aria-hidden="true" className="h-4 w-4" />
-                Register as student
-              </Link>
-              <Link
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-amber-100"
-                to="/register?role=instructor"
-              >
-                <GraduationCap aria-hidden="true" className="h-4 w-4" />
-                Become instructor
-              </Link>
+              {isAuthenticated ? (
+                <Link
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-brand-green bg-white px-4 py-2 text-sm font-bold text-brand-green shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-50 sm:col-span-2"
+                  to={dashboardPath}
+                >
+                  <GraduationCap aria-hidden="true" className="h-4 w-4" />
+                  Continue as {user?.firstName ?? 'learner'}
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-brand-green bg-white px-4 py-2 text-sm font-bold text-brand-green shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-50"
+                    to="/register?role=student"
+                  >
+                    <UserPlus aria-hidden="true" className="h-4 w-4" />
+                    Register as student
+                  </Link>
+                  <Link
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-amber-100"
+                    to="/register?role=instructor"
+                  >
+                    <GraduationCap aria-hidden="true" className="h-4 w-4" />
+                    Become instructor
+                  </Link>
+                </>
+              )}
             </div>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[

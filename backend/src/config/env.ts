@@ -3,6 +3,9 @@ import { z } from 'zod';
 
 dotenv.config({ quiet: true });
 
+const defaultRateLimitMaxRequests =
+  process.env.NODE_ENV === 'production' ? 100 : 1000;
+
 const environmentSchema = z.object({
   NODE_ENV: z
     .enum(['development', 'test', 'production'])
@@ -15,7 +18,11 @@ const environmentSchema = z.object({
     .int()
     .positive()
     .default(15 * 60 * 1000),
-  RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(100),
+  RATE_LIMIT_MAX_REQUESTS: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(defaultRateLimitMaxRequests),
   JSON_BODY_LIMIT: z.string().trim().default('1mb'),
   URL_ENCODED_BODY_LIMIT: z.string().trim().default('1mb'),
   BCRYPT_SALT_ROUNDS: z.coerce.number().int().min(10).max(15).default(12),

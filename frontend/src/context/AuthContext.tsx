@@ -3,6 +3,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,6 +13,7 @@ import {
   loginRequest,
   registerRequest,
 } from '../api/auth.api';
+import { ApiClientError } from '../api/client';
 import { PageLoader } from '../components/feedback/PageLoader';
 import type { AuthUser, LoginRequest, RegisterRequest } from '../types/auth';
 import {
@@ -23,9 +25,12 @@ import {
 } from '../utils/storage';
 import { AuthContext, type AuthContextValue } from './auth-context';
 
+const SESSION_REFRESH_COOLDOWN_MS = 30_000;
+
 export function AuthProvider({ children }: PropsWithChildren) {
   const navigate = useNavigate();
   const location = useLocation();
+  const lastAutomaticRefreshAtRef = useRef(0);
   const [user, setUser] = useState<AuthUser | null>(() => readStoredUser());
   const [accessToken, setAccessToken] = useState<string | null>(() =>
     readAccessToken(),
@@ -53,9 +58,16 @@ export function AuthProvider({ children }: PropsWithChildren) {
       setUser(currentUser);
       writeStoredUser(currentUser);
       return currentUser;
-    } catch {
-      clearSession();
-      return null;
+    } catch (error) {
+      if (
+        error instanceof ApiClientError &&
+        (error.status === 401 || error.status === 403)
+      ) {
+        clearSession();
+        return null;
+      }
+
+      return readStoredUser();
     }
   }, [clearSession]);
 
@@ -64,6 +76,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
     const restoreSession = async () => {
       await refreshCurrentUser();
+      lastAutomaticRefreshAtRef.current = Date.now();
 
       if (isMounted) {
         setIsLoading(false);
@@ -92,6 +105,39 @@ export function AuthProvider({ children }: PropsWithChildren) {
       window.removeEventListener('educonnect:unauthorized', handleUnauthorized);
     };
   }, [clearSession, location, navigate]);
+
+  useEffect(() => {
+    const refreshIfAuthenticated = () => {
+      if (!readAccessToken()) {
+        return;
+      }
+
+      const now = Date.now();
+
+      if (now - lastAutomaticRefreshAtRef.current < SESSION_REFRESH_COOLDOWN_MS) {
+        return;
+      }
+
+      lastAutomaticRefreshAtRef.current = now;
+      void refreshCurrentUser();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refreshIfAuthenticated();
+      }
+    };
+
+    window.addEventListener('focus', refreshIfAuthenticated);
+    window.addEventListener('storage', refreshIfAuthenticated);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('focus', refreshIfAuthenticated);
+      window.removeEventListener('storage', refreshIfAuthenticated);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [refreshCurrentUser]);
 
   const login = useCallback(async (input: LoginRequest): Promise<AuthUser> => {
     const data = await loginRequest(input);
